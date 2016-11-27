@@ -18,8 +18,9 @@ class RealController extends Controller
     public function index()
     {
         //
-        $chart= Charts::realtime(url('C:\Program Files (x86)\Ampps\www\demand\python\data.json'), 5000, 'line', 'highcharts')
+        $chart= Charts::realtime(route('data'), 2000, 'line', 'highcharts')
             ->responsive(false)
+
             ->elementLabel("demand")
             ->height(300)
             ->width(0)
