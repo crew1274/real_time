@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,7 +18,9 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/data',function()
+Route::get('real_data', 'RandomController@index')->name('real_data');
+
+Route::get('random_data',function()
 {
 return ['value' => rand(1,50)];
-})->name('data'); 
+})->name('random_data');

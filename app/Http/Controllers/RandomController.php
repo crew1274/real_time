@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Demand_record;
 
-use Charts;
-
-class RealController extends Controller
+class RandomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,18 +15,9 @@ class RealController extends Controller
      */
     public function index()
     {
-        //
-        $chart= Charts::realtime(route('real_data'), 1000, 'area', 'highcharts')
-            ->responsive(true)
-            ->elementLabel("demand")
-            ->height(300)
-            ->width(0)
-            ->title("Real Time Chart")
-            ->valueName('value')
-            ->maxValues(20);
-        return view('test', ['chart' => $chart]);
-
-
+        $demand = Demand_record::orderBy('created_at', 'desc')->first();
+        $value = $demand -> value;
+        return ['value'=> $value ];
     }
 
     /**
