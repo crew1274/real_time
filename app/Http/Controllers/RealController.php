@@ -23,7 +23,7 @@ class RealController extends Controller
             ->elementLabel("demand")
             ->height(300)
             ->width(0)
-            ->title("Real Time Chart")
+            ->title("需量即時監控")
             ->valueName('value')
             ->maxValues(30);
         return view('welcome', ['chart' => $chart]);
