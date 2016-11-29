@@ -228,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 

@@ -18,9 +18,9 @@ class RealController extends Controller
     public function real()
     {
         //
-        $chart= Charts::realtime(route('real_data'), 1000, 'area', 'highcharts')
+        $chart= Charts::realtime(route('real_data'), 3000, 'line', 'highcharts')
             ->responsive(true)
-            ->elementLabel("demand")
+            ->elementLabel("需量")
             ->height(300)
             ->width(0)
             ->title("需量即時監控")
@@ -32,9 +32,9 @@ class RealController extends Controller
     public function random()
     {
         //
-        $chart= Charts::realtime(route('random_data'), 1000, 'area', 'highcharts')
+        $chart= Charts::realtime(route('random_data'), 3000, 'area', 'highcharts')
             ->responsive(true)
-            ->elementLabel("demand")
+            ->elementLabel("需量")
             ->height(300)
             ->width(0)
             ->title("需量即時監控")
