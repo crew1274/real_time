@@ -18,15 +18,15 @@ class RealController extends Controller
     public function index()
     {
         //
-        $chart= Charts::realtime(route('real_data'), 1000, 'area', 'highcharts')
+        $chart= Charts::realtime(route('random_data'), 1000, 'area', 'highcharts')
             ->responsive(true)
             ->elementLabel("demand")
             ->height(300)
             ->width(0)
             ->title("Real Time Chart")
             ->valueName('value')
-            ->maxValues(20);
-        return view('test', ['chart' => $chart]);
+            ->maxValues(30);
+        return view('welcome', ['chart' => $chart]);
 
 
     }

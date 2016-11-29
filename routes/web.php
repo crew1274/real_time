@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('real', 'RealController');
+Route::resource('/', 'RealController');
