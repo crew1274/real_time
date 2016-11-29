@@ -15,7 +15,7 @@ class Demand_recordsTableSeeder extends Seeder
            'value' => '15',
            'circuit' => '1',
            'created_at' => Carbon::now(),
-           'updateed_at' => Carbon::now(),
+           'updated_at' => Carbon::now(),
             ]);
     }
 }
