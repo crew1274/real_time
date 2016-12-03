@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'RealController@real');
-Route::get('test', 'RealController@random');
+Route::get('real', 'RealController@real');
+Route::get('/', 'RealController@random');
