@@ -18,8 +18,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
+/*實際抓取資料庫資料*/
 Route::get('real_data', 'RandomController@index')->name('real_data');
 
+/*隨機產生變數*/
 Route::get('random_data',function()
 {
 return ['value' => rand(1,50)];

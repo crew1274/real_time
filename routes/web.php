@@ -13,3 +13,7 @@
 
 Route::get('real', 'RealController@real');
 Route::get('/', 'RealController@random');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
