@@ -21,7 +21,7 @@ Route::get('/user', function (Request $request) {
 /*實際抓取資料庫資料*/
 Route::get('real_data', 'RandomController@index')->name('real_data');
 
-/*隨機產生變數*/
+/*隨機產生1~50變數*/
 Route::get('random_data',function()
 {
 return ['value' => rand(1,50)];

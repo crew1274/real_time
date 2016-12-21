@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->float('utc')->comment('時區');
             $table->rememberToken();
             $table->timestamps();
         });

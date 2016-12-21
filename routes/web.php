@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('real', 'RealController@real');
-Route::get('/', 'RealController@random');
+Route::group(['prefix' => 'demo'], function () {
+    Route::get('real', 'RealController@real');
+    Route::get('random', 'RealController@random');
+    Route::get('/', 'RecordController@index');
+});
+
+Route::get('dashboard', 'DashboardController@index');
+Route::get('/', function(){return view('welcome'); });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+#Route::get('/home', 'HomeController@index');
