@@ -98,13 +98,13 @@
             -->
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-10">
+                <div class="col-lg-12">
                             <center>
                                 {!! $chart->render() !!}
                             </center>
 
                 </div>
-                <!-- /.col-lg-8 -->
+                <!--
                 <div class="col-lg-4">
 
                     @section ('pane1_panel_title', 'Notifications Panel')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Demand_record;
+use Charts;
 
 class DashboardController extends Controller
 {
@@ -14,7 +15,14 @@ class DashboardController extends Controller
     }
     public function index()
     {
-        //$records = Demand_record::orderBy('updated_at','ASC')->limit(3)->get();
-        return view('home');
+        $chart= Charts::realtime(route('random_data'), 3000, 'line', 'highcharts')
+            ->responsive(true)
+            ->elementLabel("需量")
+            ->height(300)
+            ->width(0)
+            ->title("需量即時監控")
+            ->valueName('value')
+            ->maxValues(30);
+        return view('dashboard', ['chart' => $chart]);
     }
 }

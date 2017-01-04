@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use Charts;
 
-class RealController extends Controller
+class RealtimeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class RealController extends Controller
             ->title("需量即時監控")
             ->valueName('value')
             ->maxValues(30);
-        return view('welcome', ['chart' => $chart]);
+        return view('real', ['chart' => $chart]);
     }
 
     public function random()

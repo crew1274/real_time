@@ -13,9 +13,9 @@
 
 /*demo測試路徑*/
 Route::group(['prefix' => 'demo'], function () {
-    Route::get('real', 'RealController@real');
-    Route::get('random', 'RealController@random');
-    Route::get('/', 'RecordController@index');
+    Route::get('real', 'RealtimeController@real');
+    Route::get('random', 'RealtimeController@random');
+    Route::get('/', 'RealtimeController@index');
 });
 
 Route::get('/', function(){return view('welcome'); });
