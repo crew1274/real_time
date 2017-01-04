@@ -18,25 +18,24 @@ Route::group(['prefix' => 'demo'], function () {
     Route::get('/', 'RealtimeController@index');
 });
 
+/*網路設定*/
+Route::group(['prefix' => 'network'], function () {
+    Route::post('wifi', ['as' => 'network/wifi', 'uses' => 'NetworkController@wifi']);
+    Route::post('staticip', ['as' => 'network/staticip', 'uses' => 'NetworkController@staticip']);
+    Route::post('dhcp', ['as' => 'network/dhcp', 'uses' => 'NetworkController@dhcp']);
+    Route::get('/', 'NetworkController@index');
+});
+
 Route::get('/', function(){return view('welcome'); });
 Route::get('dashboard', 'DashboardController@index');
-Route::get('ecord', 'RecordController@index');
+Route::get('record', 'RecordController@index');
 Route::resource('boot','SettingController');
 Route::resource('peaktime','ConfigController');
 
 Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@update');
+Route::get('network', 'NetworkController@index');
 
-/*網路設定*/
-Route::group(['prefix' => 'network'], function () {
-    Route::get('wifi', 'NetworkController@wifi');
-    Route::post('wifi', 'NetworkController@wifi_p');
-    Route::get('static', 'NetworkController@staticip');
-    Route::post('static', 'NetworkController@staticip_p');
-    Route::get('dhcp', 'NetworkController@dhcp');
-    Route::post('dhcp', 'NetworkController@dhcp_p');
-    Route::get('/', 'NetworkController@index');
-});
 
 /*更換語系*/
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);

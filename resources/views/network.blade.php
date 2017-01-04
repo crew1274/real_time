@@ -23,7 +23,8 @@
 </div>
 
 
-{!! Form::open(array('route' => 'static','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'network/staticip','method'=>'POST')) !!}
+
 {{ csrf_field() }}
 <div class="modal fade" id="static" tabindex="-1" role="dialog" aria-labelledby="static">
   <div class="modal-dialog" role="document">
@@ -61,7 +62,7 @@
 </div>
 {!! Form::close() !!}
 
-{!! Form::open(array('route' => 'wifi','method'=>'POST')) !!}
+{!! Form::open(array('route' => 'network/wifi','method'=>'POST')) !!}
 {{ csrf_field() }}
 
 <div class="modal fade" id="wifi" tabindex="-1" role="dialog" aria-labelledby="wifi">

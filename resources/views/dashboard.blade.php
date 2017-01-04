@@ -99,6 +99,15 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
+                    @if ($message = Session::get('success'))
+            			<div class="alert alert-success">
+            				<p>{{ $message }}</p>
+            			</div>
+            		@elseif ($message = Session::get('dangerous'))
+            		<div class="alert alert-dangerous">
+            			<p>{{ $message }}</p>
+            		</div>
+            		@endif
                             <center>
                                 {!! $chart->render() !!}
                             </center>
@@ -159,7 +168,7 @@
                                 </a>
                             </div>
                             <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                            <!--<a href="#" class="btn btn-default btn-block">View All Alerts</a> -->
 
                         <!-- /.panel-body -->
 

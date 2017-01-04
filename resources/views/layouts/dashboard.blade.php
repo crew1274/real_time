@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url ('/home') }}">DAE Admin</a>
+                <a class="navbar-brand" href="{{ url ('dashboard') }}">DAE Admin</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -156,7 +156,7 @@
                         <li>
                             <a href="{{ url('/lang/zh') }}">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i> 中文
+                                    <i class="fa fa-globe fa-fw"></i> 中文
 
                                 </div>
                             </a>
@@ -203,61 +203,40 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
 
-                        <li class="{{ Request::is('home') ? 'active' : '' }}">
-                            <a href="{{ url ('home') }}"><i class="fa fa-home fa-fw"></i> {{ trans('dashboard.home') }}</a>
+                        <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                            <a href="{{ url ('dashboard') }}"><i class="fa fa-home fa-fw"></i> {{ trans('dashboard.home') }}</a>
                         </li>
                         <li class="{{ Request::is('record') ? 'active' : '' }}">
                             <a href="{{ url ('record') }}"><i class="fa fa-bar-chart-o fa-fw"></i> {{ trans('dashboard.record') }}</a>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="{{ Request::is('setting') ? 'active' : '' }}">
-                            <a href="{{ url ('setting') }}"><i class="fa fa-cogs fa-fw"></i> {{ trans('dashboard.initial_setting') }}</a>
+                        <li class="{{ Request::is('boot') ? 'active' : '' }}">
+                            <a href="{{ url ('boot') }}"><i class="fa fa-cogs fa-fw"></i> {{ trans('dashboard.initial_setting') }}</a>
                         </li>
 
-                        <li class="{{ Request::is('config') ? 'active' : '' }}">
-                            <a href="{{ url ('config') }}"><i class="fa fa-edit fa-fw">
+                        <li class="{{ Request::is('peaktime') ? 'active' : '' }}">
+                            <a href="{{ url ('peaktime') }}"><i class="fa fa-edit fa-fw">
                             </i> {{ trans('dashboard.peak_time_config') }}</a>
                         </li>
 
+                        <li class="{{ Request::is('network') ? 'active' : '' }}">
+                            <a href="{{ url ('network') }}"><i class="fa fa-wifi"></i>{{ trans('dashboard.network')}}</a>
+                        </li>
 
-                        <li >
-                            <a href="#"><i class="fa fa-wifi"></i>{{ trans('dashboard.network') }}<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li class="{{ Request::is('network/dhcp') ? 'active' : '' }}">
-                                    <a href="{{ url ('network/dhcp') }}"> {{ trans('network.dhcp') }}</a>
-                                </li>
-                                <li class="{{ Request::is('network/static') ? 'active' : '' }}">
-                                    <a href="{{ url ('network/static') }}"> {{ trans('network.static_ip') }}</a>
-                                </li>
-                                <li class="{{ Request::is('network/wifi') ? 'active' : '' }}">
-                                    <a href="{{ url ('network/wifi') }}"> {{ trans('network.wifi') }}</a>
-                                </li>
-
-                            </ul>
                             <li >
                                 <a href="#"><i class="fa fa-wrench fa-fw"></i>
-                                {{ trans('demand_respond') }}<span class="fa arrow"></span></a>
+                                {{ trans('dashboard.demand_respond')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li class="{{ Request::is('config') ? 'active' : '' }}">
-                                        <a href="{{ url ('config') }}"><i class="fa fa-edit fa-fw">
-                                        </i> {{ trans('dashboard.peak_time_config') }}</a>
+                                    <li class="{{ Request::is('time') ? 'active' : '' }}">
+                                        <a href="{{ url ('time') }}"><i class="fa fa-edit fa-fw">
+                                        </i> {{ trans('dashboard.demand_respond_time') }}</a>
                                     </li>
-                                    <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                        <a href="{{ url ('buttons' ) }}">Buttons</a>
-                                    </li>
-                                    <li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
-                                        <a href="{{ url('notifications') }}">Alerts</a>
-                                    </li>
-                                    <li {{ (Request::is('*typography') ? 'class="active"' : '') }}>
-                                        <a href="{{ url ('typography') }}">Typography</a>
-                                    </li>
-                                    <li {{ (Request::is('*icons') ? 'class="active"' : '') }}>
-                                        <a href="{{ url ('icons') }}"> Icons</a>
-                                    </li>
-                                    <li {{ (Request::is('*grid') ? 'class="active"' : '') }}>
-                                        <a href="{{ url ('grid') }}">Grid</a>
+                                    <li class="{{ Request::is('mode') ? 'active' : '' }}">
+                                        <a href="{{ url ('mode') }}"><i class="fa fa-edit fa-fw">
+                                        </i> {{ trans('dashboard.demand_respond_mode') }}</a>
                                     </li>
                                 </ul>
+                            </li>
 
                         <li >
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
@@ -326,7 +305,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
+                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.Documentation') }}</a>
                         </li>
                     </ul>
                 </div>
