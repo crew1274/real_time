@@ -10,7 +10,7 @@
                 <h2>{{trans('setting.current_initial_setting')}}</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('setting.create') }}">
+                <a class="btn btn-success" href="{{ route('boot.create') }}">
                     {{trans('setting.create_new_setting')}}</a>
             </div>
         </div>
@@ -44,11 +44,11 @@
         <td><p class="text-danger">{{ $setting->speed }}</p></td>
         <td><p class="text-danger">{{ $setting->circuit }}</p></td>
         <td>
-            <a class="btn btn-primary" href="{{ route('setting.edit',$setting->id) }}">{{trans('setting.edit')}}</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['setting.destroy', $setting->id],'style'=>'display:inline']) !!}
+            <a class="btn btn-primary" href="{{ route('boot.edit',$setting->id) }}">{{trans('setting.edit')}}</a>
+            {!! Form::open(['method' => 'DELETE','route' => ['boot.destroy', $setting->id],'style'=>'display:inline']) !!}
             {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
-            <a class="btn btn-warning" href="{{ route('setting.show',$setting->id) }}">{{trans('setting.valid')}}</a>
+            <a class="btn btn-warning" href="{{ route('boot.show',$setting->id) }}">{{trans('setting.valid')}}</a>
         </td>
     </tr>
     @else
@@ -59,8 +59,8 @@
         <td><p class="text-info">{{ $setting->speed }}</p></td>
         <td><p class="text-danger">{{ $setting->circuit }}</p></td>
         <td>
-            <a class="btn btn-primary" href="{{ route('setting.edit',$setting->id) }}">{{trans('setting.edit')}}</a>
-            {!! Form::open(['method' => 'DELETE','route' => ['setting.destroy', $setting->id],'style'=>'display:inline']) !!}
+            <a class="btn btn-primary" href="{{ route('boot.edit',$setting->id) }}">{{trans('setting.edit')}}</a>
+            {!! Form::open(['method' => 'DELETE','route' => ['boot.destroy', $setting->id],'style'=>'display:inline']) !!}
             {!! Form::submit( trans('setting.delete') , ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
         </td>

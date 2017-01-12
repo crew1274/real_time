@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('setting.index') }}"> {{trans('setting.back')}}</a>
+                <a class="btn btn-primary" href="{{ route('boot.index') }}"> {{trans('setting.back')}}</a>
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
         </div>
         </div>
 
-        
+
         <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 text-left">
                 <button type="submit" class="btn btn-primary">{{trans('setting.update')}}</button>

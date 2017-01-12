@@ -5,7 +5,7 @@
 <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('setting.index') }}"> {{trans('setting.back')}}</a>
+                <a class="btn btn-primary" href="{{ route('boot.index') }}"> {{trans('setting.back')}}</a>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    {!! Form::open(array('route' => 'setting.store','method'=>'POST')) !!}
+    {!! Form::open(array('route' => 'boot.store','method'=>'POST')) !!}
     {{ csrf_field() }}
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4">
