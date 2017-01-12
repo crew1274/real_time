@@ -20,7 +20,7 @@
 		@section ('cotable_panel_title',trans('config.all_peak_time_config'))
 		@section ('cotable_panel_body')
 		<p class="pull-right">
-        <a class="btn btn-success" href="{{ route('config.create') }}">{{trans('config.create_new_config')}}</a>
+        <a class="btn btn-success" href="{{ route('peaktime.create') }}">{{trans('config.create_new_config')}}</a>
         </p>
 
 		<table class="table table-bordered">
@@ -48,9 +48,8 @@
 				<td><p class="text-info">{{ $peak->start }}</p></td>
 		        <td><p class="text-info">{{ $peak->end }}</p></td>
 		        <td><p class="text-info">{{trans('config.peak')}}</p></td>
-		        <td>
-		        <!--    <a class="btn btn-primary" href="{{ route('config.edit',$peak->id) }}">{{trans('config.edit')}}</a> -->
-		            {!! Form::open(['method' => 'DELETE','route' => ['config.destroy', $peak->id],'style'=>'display:inline']) !!}
+				<td>
+		            {!! Form::open(['method' => 'DELETE','route' => ['peaktime.destroy', $peak->id],'style'=>'display:inline']) !!}
 		            {!! Form::submit(trans('config.delete'), ['class' => 'btn btn-danger']) !!}
 		            {!! Form::close() !!}
 		        </td>
@@ -68,24 +67,18 @@
 		        <td><p class="text-info">{{ $peak->end }}</p></td>
 		        <td><p class="text-info">{{trans('config.half_peak')}}</p></td>
 		        <td>
-		            <!--    <a class="btn btn-primary" href="{{ route('config.edit',$peak->id) }}">{{trans('config.edit')}}</a> -->
-		            {!! Form::open(['method' => 'DELETE','route' => ['config.destroy', $peak->id],'style'=>'display:inline']) !!}
+					{!! Form::open(['method' => 'DELETE','route' => ['peaktime.destroy', $peak->id],'style'=>'display:inline']) !!}
 		            {!! Form::submit(trans('config.delete'), ['class' => 'btn btn-danger']) !!}
 		            {!! Form::close() !!}
 		        </td>
 		    </tr>
-
 			@endif
 			@endforeach
 		</tbody>
 		</table>
-
 		@endsection
 		@include('widgets.panel', array('header'=>true, 'as'=>'cotable'))
-
-
 	</div>
 </div>
 </div>
-
 @stop

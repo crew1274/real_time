@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Peak_time;
+
 class ConfigController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
-        //
+        $peaks = Peak_time::orderBy('start', 'asc')->get();
+        return view('config',compact('peaks'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ConfigController extends Controller
      */
     public function create()
     {
-        //
+        return view('config_create');
     }
 
     /**
@@ -34,7 +37,16 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'start' => 'required|date_format:H:m:s|time_conflict:day|include_check:end,day',
+            'end' => 'required|date_format:H:m:s|time_conflict:day|greater_check:start,day',
+            'state' => 'required|string',
+            'day' => 'required|string',
+            'day' => 'required|string',
+        ]);
+        Peak_time::create($request->all());
+        return redirect()->route('peaktime.index')
+                        ->with('success','Created successfully');
     }
 
     /**
@@ -45,7 +57,8 @@ class ConfigController extends Controller
      */
     public function show($id)
     {
-        //
+        $config = Peak_time::find($id);
+        return view('config_show',compact('config'));
     }
 
     /**
@@ -56,7 +69,8 @@ class ConfigController extends Controller
      */
     public function edit($id)
     {
-        //
+        $config = Peak_time::find($id);
+        return view('config_edit',compact('config'));
     }
 
     /**
@@ -68,7 +82,16 @@ class ConfigController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'start' => 'required|date_format:H:m:s|time_conflict_edit:{$id},day|include_check_edit:end,{$id},day',
+            'end' => 'required|date_format:H:m:s|time_conflict_edit:{$id},day|greater_check:start',
+            'state' => 'required|string',
+            'day' => 'required|string',
+            'day' => 'required|string',
+        ]);
+        Peak_time::find($id)->update($request->all());
+        return redirect()->route('peak_time.index')
+                        ->with('success','Time Config updated successfully!');
     }
 
     /**
@@ -79,6 +102,8 @@ class ConfigController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Peak_time::find($id)->delete();
+       return redirect()->route('peaktime.index')
+                       ->with('success','Config deleted successfully');
     }
 }
