@@ -76,11 +76,11 @@
         <form>
           <div class="form-group">
             <label for="recipient-name"class="control-label">{{trans('network.wifi_name')}}:</label>
-            {!! Form::text('name', null, array('placeholder' => trans('network.wifi_name'),'class' => 'form-control')) !!}
+            {!! Form::text('wifiname', 'wifiname', array('placeholder' => trans('network.wifi_name'),'class' => 'form-control')) !!}
           </div>
           <div class="form-group">
-            <label for="message-text" class="control-label">{{trans('network.password')}}:</label>
-            {!! Form::password('password', null, array('placeholder' => trans('network.wifi_password'),'class' => 'form-control')) !!}
+            <label for="recipient-name" class="control-label">{{trans('network.password')}}:</label>
+            <input class="form-control" placeholder="{{ trans('network.password') }}" name="wifipassword" type="password" value="">
           </div>
         </form>
       </div>

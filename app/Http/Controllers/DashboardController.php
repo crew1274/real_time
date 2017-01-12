@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
      $this->middleware('auth');
     }
+    
     public function index()
     {
         $chart= Charts::realtime(route('random_data'), 3000, 'line', 'highcharts')

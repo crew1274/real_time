@@ -9,10 +9,7 @@
                @section ('login_panel_body')
                     <form role="form" method="POST" action="{{ url('/login') }}">
                           {{ csrf_field() }}
-
                             <fieldset>
-
-
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     <input class="form-control" placeholder="{{ trans('auth.email') }}" name="email" type="email" value="{{ old('email') }}" autofocus>
                                 </div>
@@ -21,8 +18,6 @@
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-
-
                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                     <input class="form-control" placeholder="{{ trans('auth.password') }}" name="password" type="password" value="">
                                     @if ($errors->has('password'))

@@ -4,26 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
 class NetworkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        return view('network');
+        $output = array();
+        exec("traceroute 8.8.8.8", $output);
+        $output=last($output);
+        if ($output)
+        {
+        return view('network')->with('success',"connect network!");
+        }
+        else {
+        return view('network')->with('dangerous',"not connect network!");
+        }
+
     }
 
     public function wifi(Request $request)
     {
         $this->validate($request, [
-          'name' => 'required|',
-          'password' => 'required|',
+          'wifiname' => 'required|',
+          'wifipassword' => 'required|',
         ]);
-        $name = $request -> get('name');
-        $password = $request -> get('password');
+        $name = $request -> get('wifiname');
+        $password = $request -> get('wifipassword');
 
         $output = array();
         exec("echo '' | sudo -S python3 /var/www/html/dae_client/python/InternetSetting.py  3  '$name' '$password' ", $output);
         $output=last($output);
-        return view('/')->with('success',$output);
+        return redirect()->back()->with('success', $output);
     }
 
     public function dhcp_()
@@ -31,7 +49,7 @@ class NetworkController extends Controller
         $output = array();
         exec("echo '' | sudo -S python3 /var/www/html/dae_client/python/InternetSetting.py  1 ", $output);
         $output=last($output);
-        return view('network')->with('success', $output);
+        return redirect()->back()->with('success', $output);
     }
 
     public function staticip()
@@ -43,6 +61,6 @@ class NetworkController extends Controller
         $output = array();
         exec("echo '' | sudo -S python3 /var/www/html/dae_client/python/InternetSetting.py  2  '$wan' '$mask'  '$gateway' '$dns'", $output);
         $output=last($output);
-        return view('network')->with('success', $output);
+        return redirect()->back()->with('success', $output);
     }
 }

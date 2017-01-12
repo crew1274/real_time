@@ -11,9 +11,17 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+
     public function index()
     {
-        //
+        $id=Auth::id();
+        $user = User::find($id);
+        return view('auth.profile',compact('user'));
     }
 
     /**
@@ -66,10 +74,17 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+     public function update(Request $request)
+     {
+         $this->validate($request, [
+           'demand' => 'required|integer',
+         ]);
+
+         $id=Auth::id();
+         $user = User::find($id);
+         User::find($id)->update($request->all());
+         return redirect()->back();
+     }
 
     /**
      * Remove the specified resource from storage.
