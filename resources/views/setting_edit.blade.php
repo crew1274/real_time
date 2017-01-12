@@ -22,7 +22,7 @@
         </div>
     @endif
 
-    {!! Form::model($setting, ['method' => 'PATCH','route' => ['setting.update', $setting->id]]) !!}
+    {!! Form::model($setting, ['method' => 'PATCH','route' => ['boot.update', $setting->id]]) !!}
     {{ csrf_field() }}
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4">

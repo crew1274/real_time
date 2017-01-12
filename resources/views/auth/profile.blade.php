@@ -125,22 +125,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('demand') ? ' has-error' : '' }}">
-                            <label for="demand" class="col-md-4 control-label">{{trans('auth.demand')}}:</label>
-
-                            <div class="col-md-6">
-                    <input id="demand" type="text" class="form-control"
-                    value={{ $user-> demand }} name="demand" >
-                            </div>
-                        </div>
-
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-8">
+                            <div class="col-md-10 control-label">
                                 <button type="submit" class="btn btn-primary">
                                     {{trans('auth.update')}}
                                 </button>
                             </div>
-
                         </div>
                     </form>
 

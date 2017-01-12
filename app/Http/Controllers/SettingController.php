@@ -68,7 +68,7 @@ class SettingController extends Controller
         $output = array();
         exec("python3 /var/www/html/dae_client/python/valid.py '{$setting_id}' ", $output);
         $output=last($output);
-        return redirect()->route('setting.index')
+        return redirect()->route('boot.index')
                         ->with('success',$output);
     }
 

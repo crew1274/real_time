@@ -34,7 +34,7 @@ Route::resource('peaktime','ConfigController');
 
 Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@update');
-Route::get('network', 'NetworkController@index');
+Route::get('documentation', 'DashboardController@documentation');
 
 
 /*更換語系*/

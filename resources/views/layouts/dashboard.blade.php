@@ -193,11 +193,8 @@
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">  {{ csrf_field() }}  </form>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -228,16 +225,16 @@
                                 {{ trans('dashboard.demand_respond')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li class="{{ Request::is('time') ? 'active' : '' }}">
-                                        <a href="{{ url ('time') }}"><i class="fa fa-edit fa-fw">
+                                        <a href="{{ url ('time') }}">
                                         </i> {{ trans('dashboard.demand_respond_time') }}</a>
                                     </li>
                                     <li class="{{ Request::is('mode') ? 'active' : '' }}">
-                                        <a href="{{ url ('mode') }}"><i class="fa fa-edit fa-fw">
+                                        <a href="{{ url ('mode') }}">
                                         </i> {{ trans('dashboard.demand_respond_mode') }}</a>
                                     </li>
                                 </ul>
                             </li>
-
+                        <!--
                         <li >
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -260,7 +257,6 @@
                                     <a href="{{ url ('grid') }}">Grid</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -287,10 +283,8 @@
                                             <a href="#">Third Level Item</a>
                                         </li>
                                     </ul>
-                                    <!-- /.nav-third-level -->
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -304,7 +298,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
+                        <li class="{{ Request::is('documentation') ? 'active' : '' }}">
                             <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.Documentation') }}</a>
                         </li>
                     </ul>
