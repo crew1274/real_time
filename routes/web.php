@@ -36,7 +36,6 @@ Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@update');
 Route::get('documentation', 'DashboardController@documentation');
 
-
 /*更換語系*/
 Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
 
