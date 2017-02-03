@@ -34,6 +34,12 @@ Route::resource('peaktime','ConfigController');
 
 Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@update');
+
+Route::group(['prefix' => 'demand'], function () {
+    Route::get('time', 'DemandController@time');
+    Route::get('mode', 'DemandController@mode');
+    Route::get('/', 'DemandController@index');
+});
 Route::get('documentation', 'DashboardController@documentation');
 
 /*更換語系*/

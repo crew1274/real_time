@@ -224,12 +224,12 @@
                                 <a href="#"><i class="fa fa-wrench fa-fw"></i>
                                 {{ trans('dashboard.demand_respond')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li class="{{ Request::is('time') ? 'active' : '' }}">
-                                        <a href="{{ url ('time') }}">
+                                    <li class="{{ Request::is('demand/time') ? 'active' : '' }}">
+                                        <a href="{{ url ('demand/time') }}">
                                         </i> {{ trans('dashboard.demand_respond_time') }}</a>
                                     </li>
-                                    <li class="{{ Request::is('mode') ? 'active' : '' }}">
-                                        <a href="{{ url ('mode') }}">
+                                    <li class="{{ Request::is('demand/mode') ? 'active' : '' }}">
+                                        <a href="{{ url ('demand/mode') }}">
                                         </i> {{ trans('dashboard.demand_respond_mode') }}</a>
                                     </li>
                                 </ul>
