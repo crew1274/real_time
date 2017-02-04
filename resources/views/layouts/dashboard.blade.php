@@ -220,6 +220,10 @@
                             <a href="{{ url ('network') }}"><i class="fa fa-wifi"></i>{{ trans('dashboard.network')}}</a>
                         </li>
 
+                        <li class="{{ Request::is('demand') ? 'active' : '' }}">
+                            <a href="{{ url ('demand') }}"><i class="fa fa-wrench fa-fw"></i>{{ trans('dashboard.demand_respond')}}</a>
+                        </li>
+
                             <li >
                                 <a href="#"><i class="fa fa-wrench fa-fw"></i>
                                 {{ trans('dashboard.demand_respond')}}<span class="fa arrow"></span></a>

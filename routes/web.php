@@ -36,6 +36,8 @@ Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@update');
 
 Route::group(['prefix' => 'demand'], function () {
+    Route::get('range', 'DemandController@range');
+    Route::post('range', 'DemandController@range_post');
     Route::get('time', 'DemandController@time');
     Route::get('mode', 'DemandController@mode');
     Route::get('/', 'DemandController@index');

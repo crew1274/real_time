@@ -17,12 +17,12 @@ class DemandController extends Controller
      */
     public function index()
     {
-        return view('blank');
+        return view('demand');
     }
 
     public function time()
     {
-        return view('blank');
+        return response()->view('errors.403');
     }
 
     public function mode()

@@ -5,17 +5,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-
-		@if ($message = Session::get('success'))
-			<div class="alert alert-success">
-				<p>{{ $message }}</p>
-			</div>
-		@elseif ($message = Session::get('dangerous'))
-		<div class="alert alert-dangerous">
-			<p>{{ $message }}</p>
-		</div>
-		@endif
-
+		@include('layouts.alert')
 
 		@section ('cotable_panel_title',trans('config.all_peak_time_config'))
 		@section ('cotable_panel_body')
