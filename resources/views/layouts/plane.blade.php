@@ -11,20 +11,16 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 	<meta content="" name="description"/>
 	<meta content="" name="author"/>
-
+	<link rel="stylesheet" href="{{ asset("assets/ui/jquery-ui.css") }}"/>
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jqauery-ui.css">
 </head>
 <body>
 	@yield('body')
 	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
- 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
+	<script src="{{ asset("assets/ui/jquery-ui.js") }}" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
 		<script type="text/javascript">
             $(function () {
                 $('#start').datetimepicker({
@@ -43,17 +39,34 @@
 
 	<script>
         $( function() {
-            $( "#slider-range" ).slider({
+            $( "#demand-range" ).slider({
                 range: true,
                 min: 0,
-                max: 500,
-                values: [ 0, 500 ],
-                slide: function( event, ui ) {
-                    $( "#amount" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                max: 1000,
+                values: [ 0, 0 ],
+                slide: function( event, ui )
+				{
+			 	$( "#demand_bottom" ).val( ui.values[ 0 ]);
+			 	$( "#demand_top" ).val( ui.values[ 1 ]);
                 }
             });
-            $( "#amount" ).val(   $( "#slider-range" ).slider( "values", 0 ) +
-                " - " + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "value" ) );
+            $( "#demand_top" ).val( $( "#demand-range" ).slider( "value" ) );
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            $( "#demand-max" ).slider({
+                range: "min",
+                min: 0,
+                max: 1000,
+                value: 800,
+                slide: function( event, ui ) {
+                    $( "#max" ).val( ui.value );
+                }
+            });
+            $( "#max" ).val( $( "#demand-max" ).slider( "value" ) );
         } );
 	</script>
 

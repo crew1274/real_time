@@ -15,7 +15,9 @@
 Route::group(['prefix' => 'demo'], function () {
     Route::get('real', 'RealtimeController@real');
     Route::get('random', 'RealtimeController@random');
-    Route::get('/', 'RealtimeController@index');
+    Route::get('/', function () {
+    return view('form');
+});
 });
 
 /*網路設定*/
