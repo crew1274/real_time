@@ -41,10 +41,13 @@ class DemandController extends Controller
     public function store( Request $request)
     {
         $this->validate($request, [
-            'max' => 'required|integer',
-            'demand_bottom' => 'required|integer',
-            'demand_top' => 'required|integer',
+            'value' => 'required|integer',
+            'value_max' => 'required|integer',
+            'value_min' => 'required|integer',
             'mode' => 'required',
+            'load_off_gap' => 'required',
+            'reload_delay' => 'required',
+            'reload_gap' => 'required',
             'group' => 'required',
         ]);
 

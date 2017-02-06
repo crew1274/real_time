@@ -3,7 +3,15 @@
 @section('page_heading','需量反應設定')
 @section('section')
     <div class="col-sm-12">
-        @include('layouts.alert')
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @elseif ($message = Session::get('dangerous'))
+            <div class="alert alert-dangerous">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         {!! Form::open(['url' => 'demand']) !!}
         {{ csrf_field() }}
         <div class="row">
@@ -12,15 +20,15 @@
                     @section ('typo1_panel_body')
 
                         <label class="text-muted">需量低限:</label>
-                        {!! Form::number('demand_bottom', 'demand_bottom', array('id' => 'demand_bottom','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
+                        {!! Form::number('value_min', 'value_min', array('id' => 'demand_bottom','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
                      <br><label class="text-muted">需量高限:</label>
-                        {!! Form::number('demand_top', 'demand_top', array('id' => 'demand_top','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
+                        {!! Form::number('value_max', 'value_max', array('id' => 'demand_top','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
 
                         <br>
                 <div id="demand-range"></div>
 <br>
             <label class="text-muted">最大需量:</label>
-     {!! Form::number('max', 'max', array('id' => 'max','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
+     {!! Form::number('value', 'value', array('id' => 'max','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
                         <br>
         <div id="demand-max" ></div>
                 </div>
@@ -39,7 +47,6 @@
                                                  'd' => '循環先卸一起復歸',
                                                  'e' => '循環先卸先復歸',
                                                  'f' => '循環先卸後復歸'], null, array('class' => 'form-control')) !!}
-
                     </div>
                 @endsection
                 @include('widgets.panel', array('header'=>true, 'as'=>'typo2'))
@@ -76,7 +83,6 @@
                                                  'c' => '先卸後復歸',
                                                  'd' => '不設定',
                                                  'e' => 'DEM電表系列'], null, array('class' => 'form-control')) !!}
-
                             </div>
                 @endsection
                 @include('widgets.panel', array('header'=>true, 'as'=>'typo4'))
