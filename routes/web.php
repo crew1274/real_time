@@ -38,7 +38,7 @@ Route::get('profile', 'ProfileController@index');
 Route::post('profile/update', 'ProfileController@update');
 
 Route::get('demand', 'DemandController@index');
-Route::post('demand/update', 'DemandController@store');
+Route::post('demand', 'DemandController@store');
 
 Route::get('documentation', 'DashboardController@documentation');
 

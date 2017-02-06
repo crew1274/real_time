@@ -41,16 +41,16 @@ class DemandController extends Controller
     public function store( Request $request)
     {
         $this->validate($request, [
-            'max' => 'required',
-            'demand_bottom' => 'required',
-            'demand_top' => 'required',
+            'max' => 'required|integer',
+            'demand_bottom' => 'required|integer',
+            'demand_top' => 'required|integer',
             'mode' => 'required',
             'group' => 'required',
         ]);
 
         Demand_setting::create($request->all());
-        return redirect()->route('boot.index')
-            ->with('success','Setting created successfully!');
+        return redirect('demand')
+            ->with('success','設定更新成功!');
     }
 
     /**

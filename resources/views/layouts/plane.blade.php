@@ -11,6 +11,7 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport"/>
 	<meta content="" name="description"/>
 	<meta content="" name="author"/>
+	<link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />
 	<link rel="stylesheet" href="{{ asset("assets/ui/jquery-ui.css") }}"/>
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
