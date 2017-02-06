@@ -220,21 +220,17 @@
                             <a href="{{ url ('network') }}"><i class="fa fa-wifi"></i>{{ trans('dashboard.network')}}</a>
                         </li>
 
-                        <li class="{{ Request::is('demand') ? 'active' : '' }}">
-                            <a href="{{ url ('demand') }}"><i class="fa fa-wrench fa-fw"></i>{{ trans('dashboard.demand_respond')}}</a>
-                        </li>
-
                             <li >
                                 <a href="#"><i class="fa fa-wrench fa-fw"></i>
                                 {{ trans('dashboard.demand_respond')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li class="{{ Request::is('demand/time') ? 'active' : '' }}">
-                                        <a href="{{ url ('demand/time') }}">
-                                        </i> {{ trans('dashboard.demand_respond_time') }}</a>
+                                    <li class="{{ Request::is('demand') ? 'active' : '' }}">
+                                        <a href="{{ url ('demand') }}">
+                                        </i>一般設定</a>
                                     </li>
-                                    <li class="{{ Request::is('demand/mode') ? 'active' : '' }}">
-                                        <a href="{{ url ('demand/mode') }}">
-                                        </i> {{ trans('dashboard.demand_respond_mode') }}</a>
+                                    <li class="{{ Request::is('demand/control') ? 'active' : '' }}">
+                                        <a href="{{ url ('demand/control') }}">
+                                        </i>即時控制</a>
                                     </li>
                                 </ul>
                             </li>
