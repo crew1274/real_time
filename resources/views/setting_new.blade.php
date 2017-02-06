@@ -71,7 +71,6 @@
         </div>
         </div>
 
-
         <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 text-left">
                 <button type="submit" class="btn btn-primary">{{trans('setting.submit')}}</button>

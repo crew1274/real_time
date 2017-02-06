@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Demand_setting;
+
 class DemandController extends Controller
 {
     public function __construct()
@@ -19,17 +21,6 @@ class DemandController extends Controller
     {
         return view('demand');
     }
-
-    public function time()
-    {
-        return response()->view('errors.403');
-    }
-
-    public function mode()
-    {
-        return view('blank');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -47,9 +38,19 @@ class DemandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request)
     {
-        //
+        $this->validate($request, [
+            'max' => 'required',
+            'demand_bottom' => 'required',
+            'demand_top' => 'required',
+            'mode' => 'required',
+            'group' => 'required',
+        ]);
+
+        Demand_setting::create($request->all());
+        return redirect()->route('boot.index')
+            ->with('success','Setting created successfully!');
     }
 
     /**

@@ -29,7 +29,7 @@
             });
         </script>
 
-		<script type="text/javascript">
+		<script >
 	            $(function () {
 	                $('#end').datetimepicker({
 	                    format: 'HH:mm:ss'
@@ -61,12 +61,30 @@
                 range: "min",
                 min: 0,
                 max: 1000,
-                value: 800,
+                value: 1000,
                 slide: function( event, ui ) {
                     $( "#max" ).val( ui.value );
                 }
             });
             $( "#max" ).val( $( "#demand-max" ).slider( "value" ) );
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#gap1" ).spinner();
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#delay" ).spinner();
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#gap2" ).spinner();
         } );
 	</script>
 

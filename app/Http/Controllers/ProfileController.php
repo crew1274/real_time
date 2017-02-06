@@ -74,13 +74,13 @@ class ProfileController extends Controller
      public function update(Request $request)
      {
          $this->validate($request, [
-           'demand' => 'required|integer',
+           'utc' => 'required',
          ]);
 
          $id=Auth::id();
          $user = User::find($id);
          User::find($id)->update($request->all());
-         return redirect()->back();
+         return redirect()->action('DashboardController@index');
      }
 
     /**
