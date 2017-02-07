@@ -19,7 +19,8 @@ class DemandController extends Controller
      */
     public function index()
     {
-        return view('demand');
+        $last=Demand_setting::all() ->last();
+        return view('demand',compact('last'));
     }
 
     /**
