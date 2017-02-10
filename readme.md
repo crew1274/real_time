@@ -14,3 +14,4 @@ check .env<br>
 <code>php artisan db:seed</code><br>
 <code>npm install</code><br>
 <code>gulp</code><br>
+<code>npm run dev</code><br>
