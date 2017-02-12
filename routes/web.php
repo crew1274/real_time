@@ -27,7 +27,7 @@ Route::group(['prefix' => 'network'], function () {
     Route::post('dhcp', ['as' => 'network/dhcp', 'uses' => 'NetworkController@dhcp']);
     Route::get('/', 'NetworkController@index');
 });
-
+Route::get('test', function(){return view('test'); });
 Route::get('/', function(){return view('welcome'); });
 Route::get('dashboard', 'DashboardController@index');
 Route::get('record', 'RecordController@index');
