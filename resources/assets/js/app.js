@@ -13,11 +13,12 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
+
 Vue.component('example', require('./components/Example.vue'));
 
+
+
+Vue.use(VueBlu)
 const app = new Vue({
-    el: '#app',
-    data: {
-            message: 'Hello Vue.js!'
-          }
+    el: '#app'
 });
