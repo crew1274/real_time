@@ -42,6 +42,7 @@ Route::post('demand', 'DemandController@store');
 
 /*卸載群組設定*/
 Route::get('offload', 'OffloadController@index');
+
 Route::get('offload/on/{id}', 'OffloadController@on');
 Route::get('offload/off/{id}', 'OffloadController@off');
 

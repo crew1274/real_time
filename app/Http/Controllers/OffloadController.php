@@ -18,11 +18,12 @@ class OffloadController extends Controller
         $last=offload::all() -> last();
         $id= 'group'.$id;
         $last -> $id = false;
-        $last -> total --;
-        $last -> save();
+        $last -> total ++;
+        $last->save();
 
         $last=offload::all() -> last();
-        return view('offload',compact('last'));
+        return redirect('offload')
+        ->with('success','成功更新群組設定');
     }
 
     public function on($id)
@@ -30,11 +31,12 @@ class OffloadController extends Controller
         $last=offload::all() -> last();
         $id= 'group'.$id;
         $last -> $id = true;
-        $last -> total --;
-        $last -> save();
+        $last -> total ++;
+        $last->save();
 
         $last=offload::all() -> last();
-        return view('offload',compact('last'));
+        return redirect('offload')
+        ->with('success','成功更新群組設定');
     }
 
     public function index()

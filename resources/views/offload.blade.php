@@ -2,6 +2,17 @@
 @section('title','Control')
 @section('page_heading','卸載群組設定')
 @section('section')
+
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @elseif ($message = Session::get('dangerous'))
+    <div class="alert alert-dangerous">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
 <div class="col-sm-6">
 		@section ('5button_panel_title','卸載群組')
 		@section ('5button_panel_body')

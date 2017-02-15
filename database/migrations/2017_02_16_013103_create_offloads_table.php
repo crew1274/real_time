@@ -27,7 +27,7 @@ class CreateOffloadsTable extends Migration
             $table->boolean('group10')->default(0)->comment('群組10');
             $table->boolean('group11')->default(0)->comment('群組11');
             $table->boolean('group12')->default(0)->comment('群組12');
-            $table->integer('total')->nullable()->comment('總數');
+            $table->integer('total')->nullable()->comment('修改總數');
             $table->timestamps();
         });
 
