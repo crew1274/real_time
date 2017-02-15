@@ -67,7 +67,7 @@
                     <br> <br>
                     <label class="text-muted">復歸間隔時間:</label>
                     {!! Form::number('reload_gap', 'reload_gap', array('placeholder'=>  $last->reload_gap,'id' => 'gap2','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
-                    <label class="text-muted">秒</label>
+                    <label class="text-muted">分</label>
                 @endsection
                 @include('widgets.panel', array('header'=>true, 'as'=>'typo3'))
     </div>

@@ -228,6 +228,10 @@
                                         <a href="{{ url ('demand') }}">
                                         </i>一般設定</a>
                                     </li>
+                                    <li class="{{ Request::is('offload') ? 'active' : '' }}">
+                                        <a href="{{ url ('offload') }}">
+                                        </i>卸載群組設定</a>
+                                    </li>
                                     <li class="{{ Request::is('control') ? 'active' : '' }}">
                                         <a href="{{ url ('control') }}">
                                         </i>即時控制</a>
