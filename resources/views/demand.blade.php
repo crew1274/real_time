@@ -85,6 +85,22 @@
                             </div>
                 @endsection
                 @include('widgets.panel', array('header'=>true, 'as'=>'typo4'))
+                        </div>
+                </div>
+
+                  <div class="row">
+                  <div class="col-sm-8">
+                  @section ('typo5_panel_title','需量計算週期設定:')
+                   @section ('typo5_panel_body')
+                    <div class="form-group">
+                    <label class="text-muted">週期(秒):</label>
+                     {!! Form::select('cycle', [ '15' => '15',
+                                                '30' => '30',
+                                               '60' => '60'], null, array('placeholder'=>  $last->cycle ,'class' => 'form-control')) !!}
+                     </div>
+                       @endsection
+                       @include('widgets.panel', array('header'=>true, 'as'=>'typo5'))
+
                         <div class="row">
                             <div class="col-sm-8">
                         <button type="test" class="btn btn-primary">更新</button>

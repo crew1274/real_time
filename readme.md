@@ -6,11 +6,11 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 <br>
-<code>composer install</code><br>
-<code>cp .env.example .env</code><br>
+<code>$ composer install</code><br>
+<code>$ cp .env.example .env</code><br>
 check .env<br>
-<code>php artisan key:generate</code><br>
-<code>php artisan migrate</code><br>
-<code>php artisan db:seed</code><br>
-<code>npm install</code><br>
-<code>gulp</code><br>
+<code>$ php artisan key:generate</code><br>
+<code>$ php artisan migrate</code><br>
+<code>$ php artisan db:seed</code><br>
+<code>$ npm install</code><br>
+<code>$ gulp</code><br>

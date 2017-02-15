@@ -50,11 +50,12 @@ class DemandController extends Controller
             'reload_delay' => 'required',
             'reload_gap' => 'required',
             'group' => 'required',
+            'cycle' => 'required|integer',
         ]);
 
         Demand_setting::create($request->all());
         return redirect('demand')
-            ->with('success','設定更新成功!');
+            ->with('success','需量設定更新成功!');
     }
 
     /**

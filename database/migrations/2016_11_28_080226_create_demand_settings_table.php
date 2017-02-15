@@ -21,6 +21,7 @@ class CreateDemandSettingsTable extends Migration
             $table->integer('load_off_gap')->comment('卸載間格時間');
             $table->integer('reload_delay')->comment('復歸延遲時間');
             $table->integer('reload_gap')->comment('復歸間格時間');
+            $table->integer('cycle')->comment('計算週期');
             $table->string('mode')->comment('卸載模式');
             $table->string('group')->comment('卸載群種類');
             $table->timestamps();

@@ -28,3 +28,6 @@ Route::get('random_data',function()
 {
 return ['value' => rand(1,50)];
 })->name('random_data');
+
+/*需量設定api*/
+Route::get('demand', 'ApiController@demand')->name('demand');
