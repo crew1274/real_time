@@ -39,9 +39,14 @@ Route::post('profile/update', 'ProfileController@update');
 
 Route::get('demand', 'DemandController@index');
 Route::post('demand', 'DemandController@store');
-Route::get('offload', 'ControlController@index');
-Route::get('control', 'ControlController@index');
 
+/*卸載群組設定*/
+Route::get('offload', 'OffloadController@index');
+Route::get('offload/on/{id}', 'OffloadController@on');
+Route::get('offload/off/{id}', 'OffloadController@off');
+
+/*及時控制*/
+Route::get('control', 'ControlController@index');
 
 Route::get('documentation', 'DashboardController@documentation');
 
