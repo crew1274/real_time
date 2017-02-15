@@ -12,7 +12,6 @@ class ApiController extends Controller
     public function demand()
     {
         $last=Demand_setting::all() ->last();
-        $last= $last->toJson();
-        return response()->json($last);
+        return response()->json($last->toJson());
     }
 }
