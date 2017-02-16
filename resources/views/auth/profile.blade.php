@@ -32,7 +32,7 @@
                             <label for="utc" class="col-md-4 control-label">{{trans('auth.time_zone')}}:</label>
 
                             <div class="col-md-6">
-							{!!  	Form::select('utc', [8 => '8', 7 => '7'], null, ['class'=>'form-control','placeholder' => 'Pick a size...']) !!}
+							{!!  	Form::select('utc', [8 => '台灣', -6 => '美國'], null, ['class'=>'form-control']) !!}
 
 
                                 @if ($errors->has('utc'))

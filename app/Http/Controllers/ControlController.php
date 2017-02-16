@@ -21,9 +21,9 @@ class ControlController extends Controller
     }
     public function index()
     {
-        $contents = Storage::get('test.json');
-        $path = storage_path('app\test.pdf');
-        return response()->file($path);
+        $contents = Storage::get('record.json');
+        $contents=json_decode($contents, true);
+        return view('control',compact('contents'));
     }
 
     /**
