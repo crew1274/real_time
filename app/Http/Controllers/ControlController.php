@@ -22,7 +22,8 @@ class ControlController extends Controller
     public function index()
     {
         $contents = Storage::get('test.json');
-        return view('control');
+        $path = storage_path('app\test.pdf');
+        return response()->file($path);
     }
 
     /**

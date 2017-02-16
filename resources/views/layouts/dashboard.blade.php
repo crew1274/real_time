@@ -303,7 +303,7 @@
                         </li>
                         
                         <li class="{{ Request::is('documentation') ? 'active' : '' }}">
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.documentation') }}</a>
+                            <a href="{{ url ('documentation') }}" target="_blank"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.documentation') }}</a>
                         </li>
                     </ul>
                 </div>
