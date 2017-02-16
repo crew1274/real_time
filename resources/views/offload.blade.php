@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title','Control')
+@section('title','卸載群組設定')
 @section('page_heading','卸載群組設定')
 @section('section')
 
@@ -64,6 +64,54 @@
 			</p>
 			<br>
 		@endif
+		@if ( $last -> group7  == 1)
+			<h4>群組#7</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/7') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group8  == 1)
+			<h4>群組#8</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/8') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group9  == 1)
+			<h4>群組#9</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/9') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group10  == 1)
+			<h4>群組#10</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/10') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group11  == 1)
+			<h4>群組#11</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/11') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group12  == 1)
+			<h4>群組#12</h4>
+			<p>
+	 	    <a class="btn btn-warning" href="{{ url('offload/off/12') }}">
+			<i class="fa fa-times"></i></a>
+			</p>
+			<br>
+		@endif
 		@endsection
 		@include('widgets.panel', array('as'=>'5button', 'header'=>true))
 	</div>
@@ -115,6 +163,54 @@
 			<h4>群組#6</h4>
 			<p>
 	 	    <a class="btn btn-info" href="{{ url('offload/on/6') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group7  == 0)
+			<h4>群組#7</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/7') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group8  == 0)
+			<h4>群組#8</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/8') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group9  == 0)
+			<h4>群組#9</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/9') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group10  == 0)
+			<h4>群組#10</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/10') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group11  == 0)
+			<h4>群組#11</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/11') }}">
+			<i class="fa fa-check"></i></a>
+			</p>
+			<br>
+		@endif
+		@if ( $last -> group12  == 0)
+			<h4>群組#12</h4>
+			<p>
+	 	    <a class="btn btn-info" href="{{ url('offload/on/12') }}">
 			<i class="fa fa-check"></i></a>
 			</p>
 			<br>

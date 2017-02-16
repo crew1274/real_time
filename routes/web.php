@@ -28,7 +28,7 @@ Route::group(['prefix' => 'network'], function () {
     Route::get('/', 'NetworkController@index');
 });
 Route::get('test', function(){return view('test'); });
-Route::get('/', function(){return view('welcome'); });
+Route::get('/', 'HomeController@index');
 Route::get('dashboard', 'DashboardController@index');
 Route::get('record', 'RecordController@index');
 Route::resource('boot','SettingController');
@@ -42,11 +42,10 @@ Route::post('demand', 'DemandController@store');
 
 /*卸載群組設定*/
 Route::get('offload', 'OffloadController@index');
-
 Route::get('offload/on/{id}', 'OffloadController@on');
 Route::get('offload/off/{id}', 'OffloadController@off');
 
-/*及時控制*/
+/*即時控制*/
 Route::get('control', 'ControlController@index');
 
 Route::get('documentation', 'DashboardController@documentation');

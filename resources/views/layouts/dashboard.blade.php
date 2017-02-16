@@ -232,10 +232,7 @@
                                         <a href="{{ url ('offload') }}">
                                         </i>卸載群組設定</a>
                                     </li>
-                                    <li class="{{ Request::is('control') ? 'active' : '' }}">
-                                        <a href="{{ url ('control') }}">
-                                        </i>即時控制</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                         <!--
@@ -301,9 +298,12 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        <li class="{{ Request::is('control') ? 'active' : '' }}">
+                            <a href="{{ url ('control') }}"><i class="fa fa-bolt fa-fw"></i> {{ trans('dashboard.control') }}</a>
                         </li>
+                        
                         <li class="{{ Request::is('documentation') ? 'active' : '' }}">
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.Documentation') }}</a>
+                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> {{ trans('dashboard.documentation') }}</a>
                         </li>
                     </ul>
                 </div>
