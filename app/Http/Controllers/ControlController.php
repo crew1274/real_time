@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
+use App\Offload;
+
 class ControlController extends Controller
 {
     /**
@@ -17,6 +21,7 @@ class ControlController extends Controller
     }
     public function index()
     {
+        $contents = Storage::get('test.json');
         return view('control');
     }
 

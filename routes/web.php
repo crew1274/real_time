@@ -47,6 +47,7 @@ Route::get('offload/off/{id}', 'OffloadController@off');
 
 /*即時控制*/
 Route::get('control', 'ControlController@index');
+Route::get('control/switch/{id}', 'ControlController@switch');
 
 Route::get('documentation', 'DashboardController@documentation');
 
