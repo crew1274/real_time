@@ -15,7 +15,6 @@
     				Group {{$json['group']}}
   			</label>
 		</div>
-		<label id={{ 'console'.$json['group'] }}  class="text-info" ></label>
 		<label id={{ 'success'.$json['group'] }}  class="text-info" ></label>
 		@else
     	<div class="checkbox">
@@ -24,6 +23,7 @@
     				Group {{$json['group']}}
   			</label>
 		</div>
+		<label id={{ 'success'.$json['group'] }}  class="text-info" ></label>
 		@endif
 		@else
 		<div class="checkbox disabled">
@@ -32,9 +32,36 @@
     				Group {{$json['group']}}
   			</label>
 		</div>
+		<label id={{ 'success'.$json['group'] }}  class="text-info" ></label>
 		@endif
 		@endforeach
 		@endsection
 		@include('widgets.panel', array('as'=>'5button', 'header'=>true))
 </div>
+
+
+
+<script>
+        $(function() {
+        $('#switch1').change(function() 
+        {
+            $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+                        });
+
+              $.ajax({
+                    type :"POST",
+                    url: "control/switch",
+                    data: { id:1},
+        success: function() {
+            $('#success1').html('POST成功!');
+        }
+                    });
+
+                $('#console1').html('切換成功!');
+                    })
+                    })
+</script>
 @stop

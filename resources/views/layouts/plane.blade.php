@@ -25,7 +25,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
  	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
-		<script type="text/javascript">
+		
+        <script>
             $(function () {
                 $('#start').datetimepicker({
                     format: 'HH:mm:ss'
@@ -92,29 +93,7 @@
         } );
 	</script>
 
-    <script>
-        $(function() {
-        $('#switch1').change(function() 
-        {
-            $.ajaxSetup({
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-                        });
-
-              $.ajax({
-                    type :"POST",
-                    url: "control/switch",
-                    data: { id:1},
-        success: function() {
-            $('#success1').html('POST成功!');
-        }
-                    });
-
-                $('#console1').html('切換成功!');
-                    })
-                    })
-</script>
+    
 
 </body>
 </html>

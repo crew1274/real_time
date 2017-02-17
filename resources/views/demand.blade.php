@@ -67,7 +67,7 @@
                     <br> <br>
                     <label class="text-muted">復歸間隔時間:</label>
                     {!! Form::number('reload_gap', 'reload_gap', array('placeholder'=>  $last->reload_gap,'id' => 'gap2','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
-                    <label class="text-muted">分</label>
+                    <label class="text-muted">秒</label>
                 @endsection
                 @include('widgets.panel', array('header'=>true, 'as'=>'typo3'))
     </div>
@@ -93,7 +93,7 @@
                   @section ('typo5_panel_title','需量計算週期設定:')
                    @section ('typo5_panel_body')
                     <div class="form-group">
-                    <label class="text-muted">週期(秒):</label>
+                    <label class="text-muted">週期(分):</label>
                      {!! Form::select('cycle', [ '15' => '15',
                                                 '30' => '30',
                                                '60' => '60'], null, array('placeholder'=>  $last->cycle ,'class' => 'form-control')) !!}
@@ -109,4 +109,6 @@
             </fieldset>
         </form>
     </div>
+
+    
 @stop

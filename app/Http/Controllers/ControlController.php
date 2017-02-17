@@ -40,6 +40,7 @@ class ControlController extends Controller
         }
 
         //Storage::append('control.json', $request);
+         return response()->json(array('success' => true));
 
     }
 
