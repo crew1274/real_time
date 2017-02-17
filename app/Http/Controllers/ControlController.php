@@ -21,9 +21,8 @@ class ControlController extends Controller
     }
     public function index()
     {
-        $contents = Storage::get('record.json');
-        $contents=json_decode($contents, true);
-        return view('control',compact('contents'));
+        $contents = Storage::get('control.json');
+        return view('control')->with('json', json_decode($contents, true));
     }
 
     /**

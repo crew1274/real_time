@@ -5,7 +5,10 @@
 <div class="col-sm-6">
 		@section ('5button_panel_title','卸載群組')
 		@section ('5button_panel_body')
-			<h4>Control Buttons</h4>
+	@foreach($json['control'] as $json)
+
+	@endforeach
+			<h4>test</h4>
 			<p>
             <a class="btn btn-info" href="{{ url('offload/on')}}">
 			<i class="fa fa-check"></i></a>
