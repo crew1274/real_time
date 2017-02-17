@@ -25,9 +25,22 @@ class ControlController extends Controller
         return view('control')->with('json', json_decode($contents, true));
     }
 
-    public function switch()
+    public function switch(Request $request)
     {
-        //
+        $contents = Storage::get('control.json');
+        $json = json_decode($contents, true);
+        $request=$request->input('id');
+
+        foreach ( $json['control'] as $json)
+        {
+            if($json['group']==$request )
+            {
+                //Do something...
+            }
+        }
+
+        //Storage::append('control.json', $request);
+
     }
 
     /**

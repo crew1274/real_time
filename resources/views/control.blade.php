@@ -16,6 +16,7 @@
   			</label>
 		</div>
 		<label id={{ 'console'.$json['group'] }}  class="text-info" ></label>
+		<label id={{ 'success'.$json['group'] }}  class="text-info" ></label>
 		@else
     	<div class="checkbox">
   			<label>
