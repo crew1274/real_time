@@ -14,14 +14,16 @@
 	<link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />
 	<link rel="stylesheet" href="{{ asset("assets/ui/jquery-ui.css") }}"/>
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}"/>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 	@yield('body')
 	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
 	<script src="{{ asset("assets/ui/jquery-ui.js") }}" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
- 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+ 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
 		<script type="text/javascript">
             $(function () {
                 $('#start').datetimepicker({
@@ -88,6 +90,19 @@
             var spinner = $( "#gap2" ).spinner();
         } );
 	</script>
+
+    <script>
+        $(function() {
+        $('#switch1').change(function() 
+        {
+            
+              $.ajax({
+                    url: "control/switch/1",
+                    });
+            $('#console1').html('切換成功!')
+        })
+                    })
+</script>
 
 </body>
 </html>

@@ -25,12 +25,7 @@ class ControlController extends Controller
         return view('control')->with('json', json_decode($contents, true));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function switch()
     {
         //
     }
