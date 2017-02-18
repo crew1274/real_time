@@ -128,7 +128,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:2},
-        success: function() {$('#success1').html('群組2切換成功!');}
+        success: function() {$('#success2').html('群組2切換成功!');}
                     });
                     })
                     })
@@ -148,7 +148,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:3},
-        success: function() {$('#success1').html('群組3切換成功!');}
+        success: function() {$('#success3').html('群組3切換成功!');}
                     });
                     })
                     })
@@ -168,7 +168,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:4},
-        success: function() {$('#success1').html('群組4切換成功!');}
+        success: function() {$('#success4').html('群組4切換成功!');}
                     });
                     })
                     })
