@@ -29,7 +29,7 @@ class DashboardController extends Controller
 
     public function documentation()
     {
-        $path = storage_path('app\public\documentation.pdf');
+        $path = storage_path('app/public/documentation.pdf');
         return response()->file($path);
     }
 }
