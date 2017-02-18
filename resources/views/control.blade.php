@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
-@section('title','Control')
-@section('page_heading','卸載群組')
+@section('title','即時控制')
+@section('page_heading','即時控制')
 @section('section')
 <div class="col-sm-6">
 		@section ('5button_panel_title','簡易控制')
@@ -8,7 +8,7 @@
 
 		@foreach($json['control'] as $json)
 		@if ($json['available'] == 1)
-		@if ($json['boolean'] == 1)
+		@if ($json['boolean'] == true)
 		<div class="checkbox">
   			<label >
     			<input  id= {{ 'switch'.$json['group'] }} type="checkbox" checked data-toggle="toggle" data-width="100" >
@@ -18,8 +18,8 @@
 		<label id={{ 'success'.$json['group'] }}  class="text-info" ></label>
 		@else
     	<div class="checkbox">
-  			<label>
-    			<input type="checkbox" data-toggle="toggle" data-width="100">
+  			<label >
+    			<input  id= {{ 'switch'.$json['group'] }} type="checkbox" data-toggle="toggle" data-width="100" >
     				Group {{$json['group']}}
   			</label>
 		</div>
@@ -39,29 +39,4 @@
 		@include('widgets.panel', array('as'=>'5button', 'header'=>true))
 </div>
 
-
-
-<script>
-        $(function() {
-        $('#switch1').change(function() 
-        {
-            $.ajaxSetup({
-            headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-                        });
-
-              $.ajax({
-                    type :"POST",
-                    url: "control/switch",
-                    data: { id:1},
-        success: function() {
-            $('#success1').html('POST成功!');
-        }
-                    });
-
-                $('#console1').html('切換成功!');
-                    })
-                    })
-</script>
 @stop

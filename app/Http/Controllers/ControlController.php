@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 use App\Offload;
 
@@ -30,15 +32,20 @@ class ControlController extends Controller
         $contents = Storage::get('control.json');
         $json = json_decode($contents, true);
         $request=$request->input('id');
+                if( $json['control'][$request-1]['boolean'] == false )
+                {
+                    exec("python3 /var/www/html/dae_client/python/switch.py '{$request}' 1");
+                    $json['control'][$request-1]['boolean'] = true;
+                }
+                else
+                {
+                    exec("python3 /var/www/html/dae_client/python/switch.py '{$request}' 0");
+                    $json['control'][$request-1]['boolean'] = false;
+                }
 
-        foreach ( $json['control'] as $json)
-        {
-            if($json['group']==$request )
-            {
-                //Do something...
-            }
-        }
-
+        $json = json_encode($json, true);
+        Storage::delete('control.json');
+        Storage::put('control.json', $json);
         //Storage::append('control.json', $request);
          return response()->json(array('success' => true));
 

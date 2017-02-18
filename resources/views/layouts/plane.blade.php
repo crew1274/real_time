@@ -93,7 +93,86 @@
         } );
 	</script>
 
-    
+
+<script>
+        $(function() {
+        $('#switch1').change(function() 
+        {
+            $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+                        });
+
+              $.ajax({
+                    type :"POST",
+                    url: "control/switch",
+                    data: { id:1},
+        success: function() {$('#success1').html('群組1切換成功!');}
+                    });
+                    })
+                    })
+</script>
+
+<script>
+        $(function() {
+        $('#switch2').change(function() 
+        {
+            $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+                        });
+
+              $.ajax({
+                    type :"POST",
+                    url: "control/switch",
+                    data: { id:2},
+        success: function() {$('#success1').html('群組2切換成功!');}
+                    });
+                    })
+                    })
+</script>
+
+<script>
+        $(function() {
+        $('#switch3').change(function() 
+        {
+            $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+                        });
+
+              $.ajax({
+                    type :"POST",
+                    url: "control/switch",
+                    data: { id:3},
+        success: function() {$('#success1').html('群組3切換成功!');}
+                    });
+                    })
+                    })
+</script>
+
+<script>
+        $(function() {
+        $('#switch4').change(function() 
+        {
+            $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+                        });
+
+              $.ajax({
+                    type :"POST",
+                    url: "control/switch",
+                    data: { id:4},
+        success: function() {$('#success1').html('群組4切換成功!');}
+                    });
+                    })
+                    })
+</script>
 
 </body>
 </html>
