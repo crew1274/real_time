@@ -1,4 +1,7 @@
 import sys
+if sys.platform == 'win32':
+  print("only run in linux env.")
+  exit()
 import os
 
 setting = sys.argv[1]
