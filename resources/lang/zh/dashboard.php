@@ -3,8 +3,8 @@
 return [
     'profile' => "的個人資料",
     'logout' => "登出",
-    'home' => " 主頁",
-    'record' => " 紀錄",
+    'home' => " 主控臺",
+    'record' => " 用電紀錄",
     'initial_setting' => " 開機設定",
     'peak_time_config' => " 尖峰時間設定",
     'table' => " 表格",
@@ -12,7 +12,7 @@ return [
     'control' => ' 即時控制',
     'documentation' => ' 使用說明',
     'demand_respond' => ' 需量反應設定',
-    'demand_respond_time' => '時間間格設定',
+    'demand_respond_time' => ' 時間間格設定',
     'demand_respond_mode' => ' 卸載模式設定',
 
 ];

@@ -1,6 +1,7 @@
+
 import sys
-if sys.platform == 'win32':
-  print("only run in linux env.")
+if sys.platform != 'linux':
+  print("Not linux env.")
   exit()
 else:
   sys.path.insert(0, '/')
