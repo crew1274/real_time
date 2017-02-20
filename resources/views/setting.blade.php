@@ -46,7 +46,7 @@
         <td>
             <a class="btn btn-primary" href="{{ route('boot.edit',$setting->id) }}">{{trans('setting.edit')}}</a>
             {!! Form::open(['method' => 'DELETE','route' => ['boot.destroy', $setting->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+            {!! Form::submit(trans('setting.delete'), ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
             <a class="btn btn-warning" href="{{ route('boot.show',$setting->id) }}">{{trans('setting.valid')}}</a>
         </td>

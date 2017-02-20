@@ -51,7 +51,7 @@ class SettingController extends Controller
         ]);
         Setting::create($request->all());
         return redirect()->route('boot.index')
-                        ->with('success','Setting created successfully, but please valid before you use.');
+                        ->with('success','新增開機設定成功，請先驗證該設定!');
     }
 
     /**
@@ -105,7 +105,7 @@ class SettingController extends Controller
        $token -> save();
        Setting::find($id)->update($request->all());
        return redirect()->route('boot.index')
-                       ->with('success','Setting updated successfully!');
+                       ->with('success','開機設定更新成功!');
     }
 
     /**
@@ -118,6 +118,6 @@ class SettingController extends Controller
     {
         Setting::find($id)->delete();
         return redirect()->route('boot.index')
-                      ->with('success','Setting deleted successfully!');
+                      ->with('success','開機設定刪除成功!');
     }
 }

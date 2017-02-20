@@ -48,15 +48,15 @@
                 range: true,
                 min: 0,
                 max: 1000,
-                values: [ 0, 0 ],
+                values: [ {!! $last->value_min or 0!!}, {!! $last->value_max or 0 !!} ],
                 slide: function( event, ui )
 				{
 			 	$( "#demand_bottom" ).val( ui.values[ 0 ]);
 			 	$( "#demand_top" ).val( ui.values[ 1 ]);
                 }
             });
-            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "value" ) );
-            $( "#demand_top" ).val( $( "#demand-range" ).slider( "value" ) );
+            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "values",0 ) );
+            $( "#demand_top" ).val( $( "#demand-range" ).slider( "values",1 ) );
         } );
 	</script>
 
@@ -66,7 +66,8 @@
                 range: "min",
                 min: 0,
                 max: 1000,
-                value: 1000,
+                value: {!! $last->value or 0 !!},
+
                 slide: function( event, ui ) {
                     $( "#max" ).val( ui.value );
                 }

@@ -42,15 +42,15 @@ class DemandController extends Controller
     public function store( Request $request)
     {
         $this->validate($request, [
-            'value' => 'required|integer',
-            'value_max' => 'required|integer',
-            'value_min' => 'required|integer',
+            'value' => 'required',
+            'value_max' => 'required',
+            'value_min' => 'required',
             'mode' => 'required',
             'load_off_gap' => 'required',
             'reload_delay' => 'required',
             'reload_gap' => 'required',
             'group' => 'required',
-            'cycle' => 'required|integer',
+            'cycle' => 'required',
         ]);
 
         Demand_setting::create($request->all());
