@@ -3,15 +3,28 @@
 @section('page_heading',trans('config.peak_time_config'))
 @section('section')
 
-<div class="row">
-	<div class="col-sm-12">
-		@include('layouts.alert')
+@if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @elseif ($message = Session::get('dangerous'))
+    <div class="alert alert-dangerous">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
+    <div class="row">
+        <div class="col-lg-12 margin-tb">
+            <div class="pull-right">
+                <a class="btn btn-success" href="{{ route('peaktime.create') }}">
+                    {{trans('config.create_new_config')}}</a>
+            </div>
+        </div>
+    </div>
+	<br>
 
 		@section ('cotable_panel_title',trans('config.all_peak_time_config'))
 		@section ('cotable_panel_body')
-		<p class="pull-right">
-        <a class="btn btn-success" href="{{ route('peaktime.create') }}">{{trans('config.create_new_config')}}</a>
-        </p>
 
 		<table class="table table-bordered">
 			<thead>
