@@ -14,4 +14,6 @@ check .env<br>
 <code>$ php artisan db:seed</code><br>
 <code>$ npm install</code><br>
 <code>$ gulp</code><br>
-<code>$ cp storage/app/control_backup.json storage/app/control.json</code>
+<code>$ cp storage/app/control_backup.json storage/app/control.json</code><br>
+<code>$ sudo chmod 755 -R ../real_time/</code><br>
+<code>$ sudo chmod o+w -R storage/</code>
