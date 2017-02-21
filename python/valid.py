@@ -21,7 +21,7 @@ def main():
         sql = "UPDATE `demand`.`settings` SET `token` = '1' WHERE `settings`.`id` = {0};".format(sys.argv[1])
         sqlObj.executeSQL(sql)
         print("id:",str(sys.argv[1]), "vaild Successfully!")
-
+        print("驗證成功!")
     finally:
         sqlObj.close()
 
