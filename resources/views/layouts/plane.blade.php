@@ -15,7 +15,8 @@
 	<link rel="icon" href="{{ asset("favicon.ico") }}" type="image/x-icon" />
 	<link rel="stylesheet" href="{{ asset("assets/ui/jquery-ui.css") }}"/>
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}"/>
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.4.2/sweetalert2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
@@ -24,7 +25,8 @@
 	<script src="{{ asset("assets/ui/jquery-ui.js") }}" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
  	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.4.2/sweetalert2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
 		
         <script>
             $(function () {
@@ -109,7 +111,8 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:1},
-        success: function() {$('#success1').html('群組1切換成功!');}
+        success: function(response) {swal('群組1',response['state'],'success');},
+        error: function(response)   {swal('群組1',response['state'],'error');}
                     });
                     })
                     })
@@ -129,7 +132,8 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:2},
-        success: function() {$('#success2').html('群組2切換成功!');}
+        success: function(response) {swal('群組2',response['state'],'success');},
+        error: function(response)   {swal('群組2',response['state'],'error');}
                     });
                     })
                     })
@@ -149,7 +153,8 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:3},
-        success: function() {$('#success3').html('群組3切換成功!');}
+        success: function(response) {swal('群組3',response['state'],'success');},
+        error: function(response)   {swal('群組3',response['state'],'error');}
                     });
                     })
                     })
@@ -169,7 +174,8 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:4},
-        success: function() {$('#success4').html('群組4切換成功!');}
+        success: function(response) {swal('群組4',response['state'],'success');},
+        error: function(response)   {swal('群組4',response['state'],'error');}
                     });
                     })
                     })

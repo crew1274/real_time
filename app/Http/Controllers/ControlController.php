@@ -44,11 +44,13 @@ class ControlController extends Controller
                     $json['control'][$request-1]['boolean'] = false;
                 }
 
-        $json = json_encode($json, true);
+        $jsons = json_encode($json, true);
         Storage::delete('control.json');
-        Storage::put('control.json', $json);
+        Storage::put('control.json', $jsons);
         //Storage::append('control.json', $request);
-         return response()->json(array('success' => true));
+        if( $json['control'][$request-1]['boolean'] == false)
+         {return response()->json(array('state' =>  '切換成關'));}
+        else {return response()->json(array('state' =>  '切換成開'));}
 
     }
 

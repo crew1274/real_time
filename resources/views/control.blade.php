@@ -2,6 +2,7 @@
 @section('title','即時控制')
 @section('page_heading','即時控制')
 @section('section')
+
 <div class="col-sm-6">
 		@section ('5button_panel_title','簡易控制')
 		@section ('5button_panel_body')
