@@ -34,12 +34,13 @@ class ControlController extends Controller
         $request=$request->input('id');
                 if( $json['control'][$request-1]['boolean'] == false )
                 {
-                    exec("python3 /var/www/html/real_time/python/switch.py '{$request}' 1");
+                    
+                    exec("sudo python3 /var/www/html/real_time/python/switch.py '{$request}' 1");
                     $json['control'][$request-1]['boolean'] = true;
                 }
                 else
                 {
-                    exec("python3 /var/www/html/real_time/python/switch.py '{$request}' 0");
+                    exec("sudo python3 /var/www/html/real_time/python/switch.py '{$request}' 0");
                     $json['control'][$request-1]['boolean'] = false;
                 }
 

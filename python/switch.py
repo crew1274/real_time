@@ -52,7 +52,7 @@ def control(group, switch):
     n = 255 if switch == 1 else 0
     group = int(group - 1)
 
-#    response = ser.writeCommandToModbus([1, 5, 1, group - 1, n, 0])
+    response = ser.writeCommandToModbus([1, 5, 1, group, n, 0])
     print("Group: {0} is power {1}".format(group, ('on' if switch == 1 else 'off')))
 
 
