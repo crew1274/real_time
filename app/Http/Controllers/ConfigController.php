@@ -46,7 +46,7 @@ class ConfigController extends Controller
         ]);
         Peak_time::create($request->all());
         return redirect()->route('peaktime.index')
-                        ->with('success','Created successfully');
+                        ->with('success','時間設定新增成功');
     }
 
     /**
@@ -91,7 +91,7 @@ class ConfigController extends Controller
         ]);
         Peak_time::find($id)->update($request->all());
         return redirect()->route('peak_time.index')
-                        ->with('success','Time Config updated successfully!');
+                        ->with('success','時間設定更新成功!');
     }
 
     /**
@@ -104,6 +104,6 @@ class ConfigController extends Controller
     {
         Peak_time::find($id)->delete();
        return redirect()->route('peaktime.index')
-                       ->with('success','Config deleted successfully');
+                       ->with('success','時間設定刪除成功!');
     }
 }

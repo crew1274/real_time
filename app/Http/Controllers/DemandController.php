@@ -19,7 +19,9 @@ class DemandController extends Controller
      */
     public function index()
     {
-        $last=Demand_setting::all() ->last();
+        $last=Demand_setting::all()->last();
+        $last['value_max']=$last->value_max/ $last->value * 100;
+        $last['value_min']=$last->value_min/ $last->value * 100;
         return view('demand',compact('last'));
     }
 
@@ -52,7 +54,10 @@ class DemandController extends Controller
             'group' => 'required',
             'cycle' => 'required',
         ]);
-
+        $input = $request->all();
+        $input['value_max'] = $input['value']/100*$input['value_max'];
+        $input['value_min'] = $input['value']/100*$input['value_min'];
+        $request->replace($input);
         Demand_setting::create($request->all());
         return redirect('demand')
             ->with('success','需量設定更新成功!');

@@ -58,7 +58,7 @@
 			 	$( "#demand_top" ).val( ui.values[ 1 ]);
                 }
             });
-            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "values",0 ) );
+            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "values",0 ));
             $( "#demand_top" ).val( $( "#demand-range" ).slider( "values",1 ) );
         } );
 	</script>

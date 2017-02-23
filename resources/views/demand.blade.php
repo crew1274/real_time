@@ -26,18 +26,20 @@
                 <div class="col-sm-8">
                     @section ('typo1_panel_title','需量值設定:')
                     @section ('typo1_panel_body')
-                        <label class="text-muted">需量低限:</label>
-                        {!! Form::number('value_min', $last -> value_min, array('id' => 'demand_bottom','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
-                     <br><label class="text-muted">需量高限:</label>
-                        {!! Form::number('value_max', $last -> value_max, array('id' => 'demand_top','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
-
-                        <br>
-                <div id="demand-range"></div>
-<br>
-            <label class="text-muted">最大需量:</label>
+    <label class="text-muted">最大需量值設定(KWh):</label>
      {!! Form::number('value', $last -> value, array('id' => 'max','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
                         <br>
         <div id="demand-max" ></div>
+        <br>
+                        <label class="text-muted">需量低限(%):</label>
+                        {!! Form::number('value_min', $last -> value_min, array('id' => 'demand_bottom','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
+                     <br><label class="text-muted">需量高限(%):</label>
+                        {!! Form::number('value_max', $last -> value_max, array('id' => 'demand_top','readonly' => 'true','class' => 'form-control','style'=>'border:0;  font-weight:bold;')) !!}
+                        <br>
+                        
+        <div id="demand-range"></div>  
+<br>
+
                 </div>
         </div>
         @endsection

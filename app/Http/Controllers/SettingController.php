@@ -51,7 +51,7 @@ class SettingController extends Controller
         ]);
         Setting::create($request->all());
         return redirect()->route('boot.index')
-                        ->with('success','新增開機設定成功，請先驗證該設定!');
+                        ->with('success','開機設定新增成功，請先驗證該設定!');
     }
 
     /**
