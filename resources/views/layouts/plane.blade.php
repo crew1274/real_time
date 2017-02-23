@@ -49,7 +49,8 @@
             $( "#demand-range" ).slider({
                 range: true,
                 min: 0,
-                max: 1000,
+                max: 100,
+                step: 5,
                 values: [ {!! $last->value_min or 0!!}, {!! $last->value_max or 0 !!} ],
                 slide: function( event, ui )
 				{
@@ -66,8 +67,9 @@
         $( function() {
             $( "#demand-max" ).slider({
                 range: "min",
-                min: 0,
-                max: 1000,
+                min: 500,
+                max: 1500,
+                step: 10,
                 value: {!! $last->value or 0 !!},
 
                 slide: function( event, ui ) {
