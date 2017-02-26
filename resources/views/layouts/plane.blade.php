@@ -113,6 +113,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:1},
+        beforeSend:function(response){swal('Wait...');},
         success: function(response) {swal('群組1',response['state'],'success');},
         error: function(response)   {swal('群組1',response['state'],'error');}
                     });
@@ -134,6 +135,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:2},
+        beforeSend:function(response){swal('Wait...');},
         success: function(response) {swal('群組2',response['state'],'success');},
         error: function(response)   {swal('群組2',response['state'],'error');}
                     });
@@ -155,6 +157,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:3},
+        beforeSend:function(response){swal('Wait...');},
         success: function(response) {swal('群組3',response['state'],'success');},
         error: function(response)   {swal('群組3',response['state'],'error');}
                     });
@@ -176,6 +179,7 @@
                     type :"POST",
                     url: "control/switch",
                     data: { id:4},
+        beforeSend:function(response){swal('Wait...');},
         success: function(response) {swal('群組4',response['state'],'success');},
         error: function(response)   {swal('群組4',response['state'],'error');}
                     });

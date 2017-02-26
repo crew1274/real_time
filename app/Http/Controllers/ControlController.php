@@ -49,7 +49,7 @@ class ControlController extends Controller
         Storage::put('control.json', $jsons);
         //Storage::append('control.json', $request);
         if( $json['control'][$request-1]['boolean'] == false)
-         {return response()->json(array('state' =>  '切換成關'));}
+             {return response()->json(array('state' =>  '切換成關'));}
         else {return response()->json(array('state' =>  '切換成開'));}
 
     }
