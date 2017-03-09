@@ -16,4 +16,17 @@ check .env<br>
 <code>$ gulp</code><br>
 <code>$ cp storage/app/control_backup.json storage/app/control.json</code><br>
 <code>$ sudo chmod 755 -R ../real_time/</code><br>
-<code>$ sudo chmod o+w -R storage/</code>
+<code>$ sudo chmod o+w -R storage/</code><br>
+<code>$ sudo vim /etc/apache2/sites-available/real_time.conf</code><br>
+'''
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/real_time/public
+
+    <Directory /var/www/html/real_time>
+        AllowOverride All
+    </Directory>
+'''
+<code>$ sudo a2dissite 000-default.conf</code><br>
+<code>$ sudo a2ensite real_time.conf</code><br>
+<code>$ sudo a2enmod rewrite</code><br>
+<code>$ sudo service apache2 restart</code>
