@@ -34,3 +34,6 @@ Route::get('demand', 'ApiController@demand')->name('demand');
 
 /*取得經緯度*/
 Route::get('geocoding', 'ApiController@geocoding')->name('geocoding');
+
+/*取得日出落時間*/
+Route::get('suntime', 'ApiController@suntime')->name('suntime');
