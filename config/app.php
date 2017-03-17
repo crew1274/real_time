@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
          ConsoleTVs\Charts\ChartsServiceProvider::class,
+         PulkitJalan\Google\GoogleServiceProvider::class,
 
         //
 
@@ -231,6 +232,7 @@ return [
 
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Carbon' => 'Carbon\Carbon',
+        'Google' => PulkitJalan\Google\Facades\Google::class,
 
     ],
 

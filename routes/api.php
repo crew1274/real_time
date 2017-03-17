@@ -31,3 +31,6 @@ return ['value' => rand(1,50)];
 
 /*需量設定api*/
 Route::get('demand', 'ApiController@demand')->name('demand');
+
+/*取得經緯度*/
+Route::get('geocoding', 'ApiController@geocoding')->name('geocoding');
