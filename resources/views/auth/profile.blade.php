@@ -32,7 +32,7 @@
                             <label for="location" class="col-md-4 control-label">{{trans('auth.location')}}:</label>
 
                             <div class="col-md-6">
-							{!!  	Form::select('location', ['台灣' => '台灣', '美國' => '美國'], null, ['class'=>'form-control']) !!}
+							{!!  	Form::select('location', ['台灣' => '台灣', '美國' => '美國'], $user-> location, ['class'=>'form-control']) !!}
 
 
                                 @if ($errors->has('location'))

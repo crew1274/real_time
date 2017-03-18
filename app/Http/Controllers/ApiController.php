@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
 use App\Demand_setting;
+use App\Location;
+
+use Illuminate\Support\Facades\Cache;
 
 
 class ApiController extends Controller
@@ -19,21 +22,25 @@ class ApiController extends Controller
 
     public function geocoding()
     {
-        /*透過google api取得經緯度*/
+        $location = Location::all() -> last();
         $client = new Client();
-        #$response = $client->get('http://works.ioa.tw/weather/api/towns/1.json');        
-        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address=台南&key=AIzaSyBJElK1Oartgr4lYVuNYTaO6GpTlKcXQxk', ['verify' => false]);
-        #$response = $client->get('https://maps.googleapis.com/maps/api/geocode/json?address=tainan&key=AIzaSyBJElK1Oartgr4lYVuNYTaO6GpTlKcXQxk',['verify' => false]);        
+        /*透過google api取得經緯度*/      
+        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address='.$location->city.'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
         $response = json_decode($response->getBody(), true);
-        $location=$response["results"][0]['geometry']["location"];
+        $location = $response["results"][0]['geometry']["location"];
         $location = json_encode($location, true);
         return $location;
     }
 
     public function suntime()
     {
-        $sunset=date_sunset(time(), SUNFUNCS_RET_STRING, 22.9997281, 120.2270277, 90, 8);
-        $sunrise=date_sunrise(time(), SUNFUNCS_RET_STRING, 22.9997281, 120.2270277, 90, 8);
+        $location = Location::all() -> last();
+        $client = new Client();
+        /*透過google api取得經緯度*/  
+        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address='.$location->city.'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
+        $response = json_decode($response->getBody(), true);
+        $sunset = date_sunset(time(), SUNFUNCS_RET_STRING, $response["results"][0]['geometry']["location"]['lat'], $response["results"][0]['geometry']["location"]['lng'], 90, $location->utc);
+        $sunrise = date_sunrise(time(), SUNFUNCS_RET_STRING,  $response["results"][0]['geometry']["location"]['lat'], $response["results"][0]['geometry']["location"]['lng'], 90, $location->utc);
         return ['sunrise' => $sunrise,'sunset'=>$sunset];
     }
 }
