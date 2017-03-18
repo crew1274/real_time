@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
             <br /><br /><br />
-               @section ('login_panel_title',trans('auth.please_update_info'))
+               @section ('login_panel_title',trans('auth.personal_info'))
                @section ('login_panel_body')
 					{!! Form::open(['url' => 'profile/update']) !!}
 					{{ csrf_field() }}
@@ -28,16 +28,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('utc') ? ' has-error' : '' }}">
-                            <label for="utc" class="col-md-4 control-label">{{trans('auth.time_zone')}}:</label>
+                        <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
+                            <label for="location" class="col-md-4 control-label">{{trans('auth.location')}}:</label>
 
                             <div class="col-md-6">
-							{!!  	Form::select('utc', [8 => '台灣', -6 => '美國'], null, ['class'=>'form-control']) !!}
+							{!!  	Form::select('location', ['台灣' => '台灣', '美國' => '美國'], null, ['class'=>'form-control']) !!}
 
 
-                                @if ($errors->has('utc'))
+                                @if ($errors->has('location'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('utc') }}</strong>
+                                        <strong>{{ $errors->first('location') }}</strong>
                                     </span>
                                 @endif
                             </div>

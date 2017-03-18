@@ -3,22 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-use App\User;
+use App\Location;
 
-class ProfileController extends Controller
+class LocationController extends Controller
 {
-     public function __construct()
+    public function __construct()
      {
          $this->middleware('auth');
      }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $id=Auth::id();
-        $user = User::find($id);
-        return view('auth.profile',compact('user'));
+        $location = Location::all() -> last();
+        return view('auth.location',compact('location'));
     }
 
     /**
@@ -71,13 +73,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request)
-     {
-         $id=Auth::id();
-         $user = User::find($id);
-         User::find($id)->update($request->all());
-         return redirect()->action('DashboardController@index');
-     }
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
     /**
      * Remove the specified resource from storage.

@@ -11,7 +11,8 @@ return [
     'network' => ' Network Config',
     'Documentation' => 'Documentation',
     'demand_respond' => ' Demand Respond',
-    'demand_respond_time' => 'Time Gap',
+    'demand_respond_time' => ' Time Gap',
     'demand_respond_mode' => ' Off-load mode',
+    'location'=> ' Location',
 
 ];

@@ -33,10 +33,13 @@ Route::get('dashboard', 'DashboardController@index');
 Route::get('record', 'RecordController@index');
 Route::resource('boot','SettingController');
 Route::resource('peaktime','ConfigController');
-
+/*個人資料更新*/
 Route::get('profile', 'ProfileController@index');
 Route::post('profile/update', 'ProfileController@update');
-
+/*所在地更新*/
+Route::get('location', 'LocationController@index');
+Route::post('location/update', 'LocationController@update');
+/*需量設定*/
 Route::get('demand', 'DemandController@index');
 Route::post('demand', 'DemandController@store');
 

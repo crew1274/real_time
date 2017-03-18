@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Code extends Model
+class Locatioin extends Model
 {
     protected $fillable = [
-      'model','code','created_at','updated_at',
+      'city','utc','created_at','updated_at',
     ];
 }

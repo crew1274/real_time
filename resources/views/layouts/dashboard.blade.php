@@ -184,7 +184,6 @@
                             <a href="{{ url('/lang/zh') }}">
                                 <div>
                                     <i class="fa fa-globe fa-fw"></i> 中文
-
                                 </div>
                             </a>
                         </li>
@@ -205,17 +204,23 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="{{ url('profile') }}"><i class="fa fa-user fa-fw"></i>
+                        <li>
+                        <a href="{{ url('profile') }}"><i class="fa fa-user fa-fw"></i>
                             {{ Auth::user()->name }}{{ trans('dashboard.profile') }}</a>
                         </li>
-                    </li>
+
+                        <li>
+                        <a href="{{ url('location') }}"><i class="fa fa-map-marker fa-fw"></i>
+                            {{ trans('dashboard.location') }}</a>  
+                        </li>
+
                         <li class="divider"></li>
+
                         <li>
                           <a href="{{ url('/logout') }}"
                               onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
-                                       <i class="fa fa-sign-out fa-fw"></i>
-                                       {{ trans('dashboard.logout') }}</a>
+                        <i class="fa fa-sign-out fa-fw"></i>{{ trans('dashboard.logout') }}</a>
                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">  {{ csrf_field() }}  </form>
                         </li>
                     </ul>
