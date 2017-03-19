@@ -21,20 +21,22 @@
 </head>
 <body>
 	@yield('body')
+
+
 	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
 	<script src="{{ asset("assets/ui/jquery-ui.js") }}" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
  	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.4.2/sweetalert2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
-		
-        <script>
+    
+    <script>
             $(function () {
                 $('#start').datetimepicker({
                     format: 'HH:mm:ss'
                 });
             });
-        </script>
+    </script>
 
 		<script >
 	            $(function () {

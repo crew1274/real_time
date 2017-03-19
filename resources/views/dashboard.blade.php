@@ -96,7 +96,7 @@
                 </div>
             </div>
             -->
-            <!-- /.row -->
+
             <div class="row">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))
@@ -112,6 +112,23 @@
                                 {!! $chart->render() !!}
                             </center>
 
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-sun-o fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                   <h4> <div>預計日出時間:{{ $sunrise }}</div>
+                                   <br>
+                                        <div>預計日落時間:{{ $sunset }}</div></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!--
                 <div class="col-lg-4">

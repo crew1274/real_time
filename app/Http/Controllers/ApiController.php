@@ -9,8 +9,6 @@ use GuzzleHttp\Client;
 use App\Demand_setting;
 use App\Location;
 
-use Illuminate\Support\Facades\Cache;
-
 
 class ApiController extends Controller
 {

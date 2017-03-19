@@ -148,31 +148,6 @@
                     <!-- /.dropdown-tasks -->
                 </li>
 
-                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-sun-o"></i>  <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu ">
-                        <li>
-                            <a href="{{ url('/lang/zh') }}">
-                                <div>
-                                    <i class="fa fa-globe fa-fw"></i> 中文
-
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="{{ url('/lang/en') }}">
-                                <div>
-                                    <i class="fa fa-globe fa-fw"></i> English
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
 
                 <!-- /.dropdown -->
                 <li class="dropdown">
