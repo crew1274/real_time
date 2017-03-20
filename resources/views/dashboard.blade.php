@@ -2,7 +2,6 @@
 @section('title',trans('home.home'))
 @section('page_heading',trans('home.dashboard'))
 @section('section')
-{!! Charts::assets() !!}
           <!-- /.row -->
           <!--  <div class="col-sm-12">
             <div class="row">
@@ -96,7 +95,8 @@
                 </div>
             </div>
             -->
-
+<div class="col-sm-12">
+{!! Charts::assets() !!}
             <div class="row">
                 <div class="col-lg-12">
                     @if ($message = Session::get('success'))
@@ -111,10 +111,9 @@
                             <center>
                                 {!! $chart->render() !!}
                             </center>
-
                 </div>
-
-                <div class="col-lg-4">
+<div class="row">
+                <div class="col-lg-6">
                     <div class="panel panel-green">
                         <div class="panel-heading">
                             <div class="row">
@@ -122,21 +121,35 @@
                                     <i class="fa fa-sun-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                   <h4> <div>預計日出時間:{{ $sunrise }}</div>
-                                   <br>
-                                        <div>預計日落時間:{{ $sunset }}</div></h4>
+                                <div class='huge'>日出-日落
+                                   <h3>{{ $sunrise }} - {{ $sunset }}</h4></div></h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--
-                <div class="col-lg-4">
 
+            <div class="col-lg-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-map-marker fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class='huge'>{{$timeZoneId}}
+                                    <h3>UTC
+                                    @if($rawOffset>=0)+
+                                    @endif{{$rawOffset}}</div></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  <!--
+                <div class="col-lg-4">
                     @section ('pane1_panel_title', 'Notifications Panel')
                     @section ('pane1_panel_body')
-
-
                             <div class="list-group">
                                 <a href="#" class="list-group-item">
                                     <i class="fa fa-comment fa-fw"></i> New Comment
@@ -188,10 +201,6 @@
                             <!--<a href="#" class="btn btn-default btn-block">View All Alerts</a> -->
 
                         <!-- /.panel-body -->
-
-                    @endsection
-                    @include('widgets.panel', array('header'=>true, 'as'=>'pane1'))
-
 
                     <!-- /.panel
                     @section ('pane3_panel_title', 'Chat')
@@ -314,10 +323,7 @@
                         <!-- /.panel-footer -->
                     <!--</div> -->
                     <!-- /.panel .chat-panel -->
-                    @endsection
-                    @include('widgets.panel', array('header'=>true, 'as'=>'pane3'))
-                </div>
-
                 <!-- /.col-lg-4 -->
-
+@endsection
+@endsection
 @stop

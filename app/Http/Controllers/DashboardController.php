@@ -29,18 +29,16 @@ class DashboardController extends Controller
         if($location==null)
         {$sunset = '尚未設定';
          $sunrise = '尚未設定';
-         $timezone = '尚未設定';
-         $address= '尚未設定';
+         $rawOffset = '尚未設定';
+         $timeZoneId= '尚未設定';
         }
         else{
-        $client = new Client();
-        /*透過google api取得經緯度*/  
-        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address='.$location->address.'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
-        $response = json_decode($response->getBody(), true);
-        $sunset = date_sunset(time(), SUNFUNCS_RET_STRING, $response["results"][0]['geometry']["location"]['lat'], $response["results"][0]['geometry']["location"]['lng'], 90, $location->utc);
-        $sunrise = date_sunrise(time(), SUNFUNCS_RET_STRING,  $response["results"][0]['geometry']["location"]['lat'], $response["results"][0]['geometry']["location"]['lng'], 90, $location->utc);
+        $timeZoneId=$location->timeZoneId;
+        $rawOffset=$location->rawOffset/3600;
+        $sunset = date_sunset(time(), SUNFUNCS_RET_STRING, $location->lat, $location->lng, 90, $rawOffset);
+        $sunrise = date_sunrise(time(), SUNFUNCS_RET_STRING, $location->lat, $location->lng, 90, $rawOffset);
         }
-        return view('dashboard', ['chart' => $chart, 'sunset' => $sunset,'sunrise'=>$sunrise]);
+        return view('dashboard', ['chart' => $chart,'rawOffset'=> $rawOffset,'timeZoneId'=> $timeZoneId, 'sunset' => $sunset,'sunrise'=>$sunrise]);
     }
 
     public function documentation()

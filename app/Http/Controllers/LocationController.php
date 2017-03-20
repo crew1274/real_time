@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use GuzzleHttp\Client;
 use App\Location;
 
 class LocationController extends Controller
@@ -51,16 +51,30 @@ class LocationController extends Controller
             'address' => 'bail|required|string',
         ]);
         $client = new Client();
+        /*使用google api*/
         $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address='.$request->address.'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
         $response = json_decode($response->getBody(), true);
-        if($response[status] != 'OK')
+        if($response['status'] != 'OK')
         {
-            return redirect()->action('LocationController@index') ->with('errors','無法確認地址的正確位置');
+            $location = Location::all() -> last();
+            return redirect()->action('LocationController@index') ->withErrors(array('address' => '地址無法確認'));
         }
-        $request->lat = $response["results"][0]['geometry']["location"]['lat'];
-        $request->lng = $response["results"][0]['geometry']["location"]['lat'];
-        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/geocode/json?address='.$request->address.'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
-        Location::create($request->all());
+        //取得經緯度
+        $lat = $response["results"][0]['geometry']["location"]['lat'];
+        $lng = $response["results"][0]['geometry']["location"]['lng'];
+        //取得時區
+        $response = $client->request('GET', 'https://maps.googleapis.com/maps/api/timezone/json?location='.$lat.','.$lng.
+        '&timestamp='.time().'&key='.env('GOOGLE_API_KEY'), ['verify' => false]);
+        $response = json_decode($response->getBody(), true);
+        if($response['status'] != 'OK')
+        {
+            $location = Location::all() -> last();
+            return redirect()->action('LocationController@index') ->withErrors(array('address' => 'field is required.'));
+        }
+        $rawOffset = $response["rawOffset"];
+        $dstOffset = $response["dstOffset"];
+        $timeZoneId = $response["timeZoneId"];
+        Location::create(['address' => $request->address,'lat'=>$lat,'lng'=>$lng,'rawOffset'=>$rawOffset,'dstOffset'=>$dstOffset,'timeZoneId'=>$timeZoneId]);
         return redirect()->action('DashboardController@index');
     }
 

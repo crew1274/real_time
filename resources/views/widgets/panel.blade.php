@@ -8,9 +8,13 @@
 	
 	@if( isset($controls))  
 	<div class="panel-control pull-right">
-		<a class="panelButton"><i class="fa fa-refresh"></i></a>
-		<a class="panelButton"><i class="fa fa-minus"></i></a>
-		<a class="panelButton"><i class="fa fa-remove"></i></a>
+		<a class="panelButton" href="{{ url()->full() }}"><i class="fa fa-refresh"></i></a>
+		<a class="panelButton" href="{{ url()->previous() }}"><i class="fa fa-arrow-circle-left"></i></a>
+		<a class="panelButton" href="{{ url('dashboard') }}"s><i class="fa fa-remove"></i></a>
+		<!--
+		<a class="panelButton" href="{{ url()->full() }}"><i class="fa fa-minus"></i></a>
+		<a class="panelButton" href="{{ url()->previous() }}"><i class="fa fa-long-arrow-left "></i></a>
+		-->
 	</div>
 	@endif
 	</h3>
