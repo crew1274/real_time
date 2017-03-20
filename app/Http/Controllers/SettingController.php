@@ -43,11 +43,11 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'model' => 'required|string',
-            'address' => 'required|integer|min:1|max:255',
-            'ch' => 'required|integer|min:1|max:15',
-            'speed' => 'required|integer',
-            'circuit' => 'required|integer|min:1|max:72|unique:settings,circuit',
+            'model' => 'bail|required|string',
+            'address' => 'bail|required|integer|min:1|max:255',
+            'ch' => 'bail|required|integer|min:1|max:15',
+            'speed' => 'bail|required|integer',
+            'circuit' => 'bail|required|integer|min:1|max:72|unique:settings,circuit',
         ]);
         Setting::create($request->all());
         return redirect()->route('boot.index')
@@ -94,11 +94,11 @@ class SettingController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-         'model' => 'required',
-         'address' => 'required|integer|min:1|max:255',
-         'ch' => 'required|integer|min:1|max:15',
-         'speed' => 'required',
-         'circuit' => 'required|integer|min:1|max:72|unique:settings,circuit,'.$id,
+         'model' => 'bail|required',
+         'address' => 'bail|required|integer|min:1|max:255',
+         'ch' => 'bail|required|integer|min:1|max:15',
+         'speed' => 'bail|required',
+         'circuit' => 'bail|required|integer|min:1|max:72|unique:settings,circuit,'.$id,
        ]);
        $token = Setting::find($id);
        $token-> token = '0';

@@ -14,6 +14,6 @@ return [
     'demand_respond' => ' 需量反應設定',
     'demand_respond_time' => ' 時間間格設定',
     'demand_respond_mode' => ' 卸載模式設定',
-    'location'=> ' 地區設定',
+    'location'=> ' 地址設定',
 
 ];

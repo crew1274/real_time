@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('location')->comment('地區');
+            $table->string('location')->comment('使用者的國家');
             $table->rememberToken();
             $table->timestamps();
         });

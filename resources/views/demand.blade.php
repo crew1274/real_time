@@ -1,4 +1,7 @@
 @extends ('layouts.dashboard')
+@push('css')
+<link rel="stylesheet" href="{{ asset("assets/ui/jquery-ui.css") }}"/>
+@endpush
 @section('title','需量反應設定')
 @section('page_heading','需量反應設定')
 @section('section')
@@ -117,7 +120,61 @@
                         </div>
             </fieldset>
         </form>
-    </div>
-
-    
+    </div>  
 @stop
+@push('javascript')
+<script src="{{ asset("assets/ui/jquery-ui.js") }}" type="text/javascript"></script>
+<script>
+        $( function() {
+            $( "#demand-range" ).slider({
+                range: true,
+                min: 0,
+                max: 100,
+                step: 5,
+                values: [ {!! $last->value_min or 0!!}, {!! $last->value_max or 0 !!} ],
+                slide: function( event, ui )
+				{
+			 	$( "#demand_bottom" ).val( ui.values[ 0 ]);
+			 	$( "#demand_top" ).val( ui.values[ 1 ]);
+                }
+            });
+            $( "#demand_bottom" ).val( $( "#demand-range" ).slider( "values",0 ));
+            $( "#demand_top" ).val( $( "#demand-range" ).slider( "values",1 ) );
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            $( "#demand-max" ).slider({
+                range: "min",
+                min: 500,
+                max: 1500,
+                step: 10,
+                value: {!! $last->value or 0 !!},
+
+                slide: function( event, ui ) {
+                    $( "#max" ).val( ui.value );
+                }
+            });
+            $( "#max" ).val( $( "#demand-max" ).slider( "value" ) );
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#gap1" ).spinner();
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#delay" ).spinner();
+        } );
+	</script>
+
+	<script>
+        $( function() {
+            var spinner = $( "#gap2" ).spinner();
+        } );
+	</script>
+@endpush

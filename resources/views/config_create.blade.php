@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+@endpush
 @section('title',trans('config.create_new_peak_time_config'))
 @section('page_heading',trans('config.create_new_peak_time_config'))
 @section('section')
@@ -86,3 +89,22 @@
     
     {!! Form::close() !!}
 @stop
+@push('javascript')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js" type="text/javascript" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" type="text/javascript" ></script>
+    <script>
+            $(function () {
+                $('#start').datetimepicker({
+                    format: 'HH:mm:ss'
+                });
+            });
+    </script>
+
+		<script >
+	            $(function () {
+	                $('#end').datetimepicker({
+	                    format: 'HH:mm:ss'
+	                });
+	            });
+	    </script>
+@endpush

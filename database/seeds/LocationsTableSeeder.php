@@ -12,8 +12,8 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('locations')->insert([
-           'city' => '台南',
-           'utc' => '8',
+           'address' => '台南市大學路東區1號',
+           
            'created_at' => Carbon::now(),
            'updated_at' => Carbon::now(),
             ]);

@@ -38,11 +38,10 @@ class ConfigController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'start' => 'required|date_format:H:m:s|time_conflict:day|include_check:end,day',
-            'end' => 'required|date_format:H:m:s|time_conflict:day|greater_check:start,day',
-            'state' => 'required|string',
-            'day' => 'required|string',
-            'day' => 'required|string',
+            'start' => 'bail|required|date_format:H:m:s|time_conflict:day|include_check:end,day',
+            'end' => 'bail|required|date_format:H:m:s|time_conflict:day|greater_check:start,day',
+            'state' => 'bail|required|string',
+            'day' => 'bail|required|string',
         ]);
         Peak_time::create($request->all());
         return redirect()->route('peaktime.index')
@@ -83,11 +82,10 @@ class ConfigController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'start' => 'required|date_format:H:m:s|time_conflict_edit:{$id},day|include_check_edit:end,{$id},day',
-            'end' => 'required|date_format:H:m:s|time_conflict_edit:{$id},day|greater_check:start',
-            'state' => 'required|string',
-            'day' => 'required|string',
-            'day' => 'required|string',
+            'start' => 'bail|required|date_format:H:m:s|time_conflict_edit:{$id},day|include_check_edit:end,{$id},day',
+            'end' => 'bail|required|date_format:H:m:s|time_conflict_edit:{$id},day|greater_check:start',
+            'state' => 'bail|required|string',
+            'day' => 'bail|required|string',
         ]);
         Peak_time::find($id)->update($request->all());
         return redirect()->route('peak_time.index')

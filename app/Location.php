@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Location extends Model
 {
     protected $fillable = [
-      'city','utc','created_at','updated_at',
+      'address','timeZoneId','dstOffset','rawOffset','created_at','updated_at',
     ];
 }
