@@ -9,7 +9,7 @@
                @section ('location_panel_body')
             @if(isset($location))
             <div class="form-group">
-            <label class="text-muted">{{$location->address}}</label>
+            <h3><label class="text-muted">{{$location->address}}</label></h3>
             </div>
             @endif
 
