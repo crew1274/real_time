@@ -79,7 +79,7 @@
                     Welcome
                 </div>
 
-             <div class="links">
+                <div class="links">
                     <a href="{{ url('/lang/zh') }}">中文</a>
                     <a href="{{ url('/lang/en') }}">English</a>
                 </div>
