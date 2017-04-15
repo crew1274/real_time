@@ -26,6 +26,7 @@
 
 
     <table class="table table-bordered">
+    <thead>
         <tr>
             <th>{{trans('setting.model')}}</th>
             <th>{{trans('setting.address')}}</th>
@@ -34,7 +35,9 @@
             <th>{{trans('setting.circuit')}}</th>
             <th width="280px">{{trans('setting.action')}}</th>
         </tr>
-    @foreach ($settings as $key => $setting)
+    </thead>
+    <tbody>
+    @foreach ($settings as $setting)
     @if  ($setting->token == false)
     <tr class="danger">
         <td><p class="text-danger">{{ $setting->model }}</p></td>
@@ -67,6 +70,7 @@
 
     @endif
     @endforeach
+    </tbody>
     </table>
     {!! $settings->render() !!}
 
