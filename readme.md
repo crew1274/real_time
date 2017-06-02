@@ -10,8 +10,7 @@
 <code>$ cp .env.example .env</code>     
 check .env      
 <code>$ php artisan key:generate</code>     
-<code>$ php artisan migrate</code>      
-<code>$ php artisan db:seed</code>      
+<code>$ php artisan migrate --seed</code>      
 <code>$ npm install</code>      
 <code>$ gulp</code>     
 <code>$ cp storage/app/control_backup.json storage/app/control.json</code>      
