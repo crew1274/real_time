@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $chart= Charts::realtime(route('real_data'), 3000, 'line', 'highcharts')
+        $chart= Charts::realtime(route('random_data'), 3000, 'line', 'highcharts')
             ->responsive(true)
             ->elementLabel("需量")
             ->height(300)

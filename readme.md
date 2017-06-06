@@ -16,8 +16,8 @@
 <code>$ touch database/database.sqlite</code><br>
 <code>$ php artisan key:generate</code><br>
 <code>$ php artisan migrate --seed</code><br>
-<code>$ cp storage/app/config_backup.json storage/app/config.json</code><br>
-<code>$ sudo chmod 755 -R ../web/</code><br>
+<code>$ cp storage/app/control_backup.json storage/app/control.json</code><br>
+<code>$ sudo chmod 755 -R ../real_time/</code><br>
 <code>$ sudo chmod o+w -R storage/</code><br>
 <code>$ sudo vim /etc/apache2/sites-available/real_time.conf</code><br>
 ```sh
